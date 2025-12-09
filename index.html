@@ -892,6 +892,56 @@
     box-shadow: none;
     border-color: var(--border-color);
 }
+        /* --- NEW SECTIONS (2025 UPGRADE) --- */
+
+/* 1. What We Can Do */
+.what-we-do-section { padding: 100px 20px; background: white; text-align: center; }
+.wwd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; max-width: 1200px; margin: 50px auto 0; }
+.wwd-card { padding: 40px; border: 1px solid #eee; border-radius: 8px; transition: 0.3s; text-align: left; }
+.wwd-card:hover { border-color: var(--primary-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.wwd-icon { width: 50px; height: 50px; margin-bottom: 20px; color: var(--primary-orange); }
+.wwd-icon svg { width: 100%; height: 100%; fill: none; stroke: currentColor; stroke-width: 1.5; }
+
+/* 2. Exclusive Partnerships */
+.partners-section { padding: 100px 20px; background: var(--bg-light); }
+.partners-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; max-width: 1200px; margin: 0 auto; }
+.partner-card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+.partner-img { height: 200px; background: #eee; background-size: cover; background-position: center; position: relative; }
+.partner-badge { position: absolute; top: 15px; left: 15px; background: var(--primary-orange); color: white; padding: 4px 12px; font-size: 0.75rem; font-weight: bold; border-radius: 4px; text-transform: uppercase; }
+.partner-body { padding: 30px; }
+.partner-title { font-size: 1.25rem; font-weight: 700; margin-bottom: 15px; }
+.partner-list { list-style: none; padding: 0; margin: 0; }
+.partner-list li { position: relative; padding-left: 20px; margin-bottom: 10px; font-size: 0.9rem; color: #666; }
+.partner-list li::before { content: "•"; color: var(--primary-orange); position: absolute; left: 0; font-weight: bold; }
+
+/* 3. Project Management (Timeline) */
+.pm-section { padding: 100px 20px; background: white; }
+.pm-timeline { display: flex; justify-content: space-between; max-width: 1100px; margin: 60px auto; position: relative; overflow-x: auto; padding-bottom: 20px; }
+.pm-timeline::before { content: ''; position: absolute; top: 25px; left: 50px; right: 50px; height: 2px; background: #eee; z-index: 0; }
+.pm-step { flex: 1; text-align: center; position: relative; z-index: 1; min-width: 140px; }
+.pm-num { width: 50px; height: 50px; background: white; border: 2px solid var(--primary-orange); color: var(--primary-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin: 0 auto 20px; font-size: 1.2rem; }
+.pm-step h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; color: #333; }
+.pm-step p { font-size: 0.85rem; color: #888; }
+
+.transparency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 60px auto 0; }
+.trans-card { padding: 30px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--text-main); }
+.trans-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.trans-card p { font-size: 0.9rem; color: #666; margin: 0; }
+
+/* 4. Logistics (Map/Network) */
+.logistics-section { padding: 100px 20px; background: #1a1a1a; color: white; }
+.log-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; max-width: 1200px; margin: 0 auto; align-items: center; }
+.log-content h3 { font-size: 2rem; margin-bottom: 20px; color: white; }
+.log-list li { margin-bottom: 20px; padding-left: 30px; position: relative; }
+.log-list li::before { content: "✓"; position: absolute; left: 0; color: var(--primary-orange); font-weight: bold; }
+.log-visual { height: 400px; background: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=2670&auto=format&fit=crop') center/cover; border-radius: 8px; opacity: 0.8; }
+
+@media (max-width: 900px) {
+    .pm-timeline { flex-direction: column; gap: 40px; }
+    .pm-timeline::before { display: none; }
+    .transparency-grid, .log-grid { grid-template-columns: 1fr; gap: 40px; }
+    .log-visual { height: 250px; }
+}
     </style>
 </head>
 <body>
@@ -923,14 +973,144 @@
     <div class="trust-bar">
         <div class="trust-title">Powering the world's leading compute networks</div>
         <div class="trust-logos">
-            <span>NVIDIA</span>
-            <span>Bitmain</span>
-            <span>Schneider</span>
-            <span>UL Listed</span>
-            <span>ETL Verified</span>
-        </div>
+    <img src="logo-nvidia.png" alt="NVIDIA" style="height: 30px; opacity: 0.6; filter: grayscale(100%);">
+    
+    <img src="logo-bitmain.png" alt="Bitmain" style="height: 30px; opacity: 0.6; filter: grayscale(100%);">
+    
+    <img src="logo-schneider.png" alt="Schneider" style="height: 35px; opacity: 0.6; filter: grayscale(100%);">
+    
+    <img src="logo-ul.png" alt="UL Listed" style="height: 35px; opacity: 0.6; filter: grayscale(100%);">
+    
+    <img src="logo-etl.png" alt="ETL Verified" style="height: 35px; opacity: 0.6; filter: grayscale(100%);">
+</div>
     </div>
 
+    <section class="what-we-do-section">
+    <div class="container">
+        <div class="section-header" style="margin-bottom:20px;">
+            <h2 style="font-size:36px; margin-bottom:10px;">What We Can Do for You</h2>
+            <p style="font-size:18px; color:#666; max-width:800px; margin:0 auto;">Solving Critical Power Supply Challenges for Data Centers and Critical Infrastructure</p>
+        </div>
+        <div class="wwd-grid">
+            <div class="wwd-card">
+                <div class="wwd-icon"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path></svg></div>
+                <h3>Solve Gas Turbine Shortages</h3>
+                <p>We supply Dongfang Electric G50 Gas Turbines with a guaranteed <strong>10-12 month</strong> lead time and highly competitive procurement costs, bypassing global supply bottlenecks.</p>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg></div>
+                <h3>Custom Project Management</h3>
+                <p>For non-standard requirements, our dedicated PM team handles everything from needs analysis to delivery, ensuring seamless execution for complex infrastructure.</p>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+                <h3>Standard Product Logistics</h3>
+                <p>Leveraging efficient warehousing and logistics management to guarantee rapid delivery of standard components, minimizing project downtime.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="partners-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Exclusive Products & Partnerships</h2>
+            <p>Unlocking Unique Benefits through our strategic alliances with Dongfang Electric, CIMC, and Cooling Leaders.</p>
+        </div>
+        <div class="partners-grid">
+            <div class="partner-card">
+                <div class="partner-img" style="background-image: url('https://images.unsplash.com/photo-1622628386767-33b53a723378?q=80&w=800&auto=format&fit=crop');">
+                    <span class="partner-badge">Partner</span>
+                </div>
+                <div class="partner-body">
+                    <h3 class="partner-title">Johnson Controls & Trane</h3>
+                    <ul class="partner-list">
+                        <li>Dedicated production lines for on-time start.</li>
+                        <li>Custom water/liquid cooling systems.</li>
+                        <li>Better pricing & flexible commercial terms.</li>
+                        <li>One-stop design to installation service.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-img" style="background-image: url('https://images.unsplash.com/photo-1565514020176-884032877e60?q=80&w=800&auto=format&fit=crop');">
+                    <span class="partner-badge">Partner</span>
+                </div>
+                <div class="partner-body">
+                    <h3 class="partner-title">Dongfang Electric G50</h3>
+                    <ul class="partner-list">
+                        <li>"Project-Specific" lines for guaranteed delivery.</li>
+                        <li>Competitive pricing & priority spare parts.</li>
+                        <li>Full factory support (training & after-sales).</li>
+                        <li>Direct access to custom configurations.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-img" style="background-image: url('https://images.unsplash.com/photo-1518709414768-a88981a45e5d?q=80&w=800&auto=format&fit=crop');">
+                    <span class="partner-badge">Regional Agent</span>
+                </div>
+                <div class="partner-body">
+                    <h3 class="partner-title">CIMC Engines</h3>
+                    <ul class="partner-list">
+                        <li>Pricing better than direct factory contact.</li>
+                        <li>Priority production agreements.</li>
+                        <li>Exclusive full-chain logistics & warehousing.</li>
+                        <li>Localized after-sales & issue resolution.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="pm-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Custom Solutions & Project Management</h2>
+            <p>End-to-end management for non-standard customized projects.</p>
+        </div>
+        
+        <div class="pm-timeline">
+            <div class="pm-step"><div class="pm-num">1</div><h4>Analysis</h4><p>Needs & Consultation</p></div>
+            <div class="pm-step"><div class="pm-num">2</div><h4>Design</h4><p>Prototyping</p></div>
+            <div class="pm-step"><div class="pm-num">3</div><h4>Test</h4><p>Prototype Validation</p></div>
+            <div class="pm-step"><div class="pm-num">4</div><h4>Build</h4><p>Manufacturing</p></div>
+            <div class="pm-step"><div class="pm-num">5</div><h4>Deliver</h4><p>Acceptance</p></div>
+            <div class="pm-step"><div class="pm-num">6</div><h4>Support</h4><p>After-Sales</p></div>
+        </div>
+
+        <div class="transparency-grid">
+            <div class="trans-card">
+                <h4>Third-Party Oversight</h4>
+                <p>We partner with independent certification bodies to ensure every stage meets international standards and quality requirements.</p>
+            </div>
+            <div class="trans-card">
+                <h4>Real-Time Reporting</h4>
+                <p>Weekly progress reports and a dedicated Project Manager ensure you are always in the loop with transparent communication.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="logistics-section">
+    <div class="container">
+        <div class="log-grid">
+            <div class="log-content">
+                <h3>Standard Products & Logistics Management</h3>
+                <p style="margin-bottom:30px; font-size:1.1rem; color:#ccc;">
+                    Ensuring the shortest delivery times through dedicated lines and a nationwide warehousing network.
+                </p>
+                <ul class="log-list" style="list-style:none; padding:0;">
+                    <li><strong>Dedicated Logistics Lines:</strong> Partnerships with top global carriers for faster cross-border delivery.</li>
+                    <li><strong>US-Wide Warehousing:</strong> Rapid response from local inventory hubs across the country.</li>
+                    <li><strong>Optimized Routing:</strong> Whether sea or air, we find the fastest path to your site.</li>
+                </ul>
+            </div>
+            <div class="log-visual"></div>
+        </div>
+    </div>
+</section>
     <section class="value-section">
         <div class="section-header"><h2>Why Leading Projects Choose YCE?</h2></div>
         <div class="value-grid">
