@@ -36,7 +36,7 @@
            ========================================= */
         header {
             background-color: #fff;
-            padding: 8px 40px;
+            padding: 0px 40px;
             border-bottom: 1px solid var(--border-color);
             display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000;
@@ -923,7 +923,7 @@
 .pm-step h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 5px; color: #333; }
 .pm-step p { font-size: 0.85rem; color: #888; }
 
-.transparency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 60px auto 0; }
+.transparency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1200px; margin: 60px auto 0; }
 .trans-card { padding: 30px; background: #f9f9f9; border-radius: 8px; border-left: 4px solid var(--text-main); }
 .trans-card h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
 .trans-card p { font-size: 0.9rem; color: #666; margin: 0; }
@@ -941,6 +941,40 @@
     .pm-timeline::before { display: none; }
     .transparency-grid, .log-grid { grid-template-columns: 1fr; gap: 40px; }
     .log-visual { height: 250px; }
+}
+        /* --- FIX: Logistics List Layout --- */
+.log-list li {
+    margin-bottom: 25px;       /* 增加每一项之间的间距 */
+    padding-left: 30px;        /* 为前面的勾选图标留出空间 */
+    position: relative;
+}
+
+/* 勾选图标定位 */
+.log-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;                    /* 图标对齐标题第一行 */
+    color: var(--primary-orange);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* 标题样式 */
+.log-item-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: white;              /* 深色背景用白色文字 */
+    margin: 0 0 5px 0;         /* 标题和描述之间的间距 */
+    display: block;            /* 强制独占一行 */
+}
+
+/* 描述样式 */
+.log-item-desc {
+    font-size: 0.95rem;
+    color: #ccc;               /* 浅灰色描述 */
+    margin: 0;
+    line-height: 1.5;
 }
     </style>
 </head>
@@ -989,7 +1023,7 @@
     <div class="container">
         <div class="section-header" style="margin-bottom:20px;">
             <h2 style="font-size:36px; margin-bottom:10px;">What We Can Do for You</h2>
-            <p style="font-size:18px; color:#666; max-width:800px; margin:0 auto;">Solving Critical Power Supply Challenges for Data Centers and Critical Infrastructure</p>
+            <p style="font-size:16px; color:#000; max-width:800px; margin:0 auto;">Solving Critical Power Supply Challenges for Data Centers and Critical Infrastructure</p>
         </div>
         <div class="wwd-grid">
             <div class="wwd-card">
@@ -1102,10 +1136,25 @@
                     Ensuring the shortest delivery times through dedicated lines and a nationwide warehousing network.
                 </p>
                 <ul class="log-list" style="list-style:none; padding:0;">
-                    <li><strong>Dedicated Logistics Lines:</strong> Partnerships with top global carriers for faster cross-border delivery.</li>
-                    <li><strong>US-Wide Warehousing:</strong> Rapid response from local inventory hubs across the country.</li>
-                    <li><strong>Optimized Routing:</strong> Whether sea or air, we find the fastest path to your site.</li>
-                </ul>
+    <li>
+        <div class="log-item-content">
+            <h4 class="log-item-title">Dedicated Logistics Lines</h4>
+            <p class="log-item-desc">Partnerships with top global carriers for faster cross-border delivery.</p>
+        </div>
+    </li>
+    <li>
+        <div class="log-item-content">
+            <h4 class="log-item-title">US-Wide Warehousing</h4>
+            <p class="log-item-desc">Rapid response from local inventory hubs across the country.</p>
+        </div>
+    </li>
+    <li>
+        <div class="log-item-content">
+            <h4 class="log-item-title">Optimized Routing</h4>
+            <p class="log-item-desc">Whether sea or air, we find the fastest path to your site.</p>
+        </div>
+    </li>
+</ul>
             </div>
             <div class="log-visual"></div>
         </div>
