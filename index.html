@@ -36,7 +36,7 @@
            ========================================= */
         header {
             background-color: #fff;
-            padding: 20px 40px;
+            padding: 8px 40px;
             border-bottom: 1px solid var(--border-color);
             display: flex; justify-content: space-between; align-items: center;
             position: sticky; top: 0; z-index: 1000;
@@ -2992,39 +2992,84 @@ https://uspwr.com/wp-content/uploads/2025/04/Overhead-Busway-Systems.jpg" alt="O
 </footer>
 
 <script>
-    function switchPage(pageId) {
-        // 1. Hide all pages
+    // 1. 核心切换函数 (负责显示/隐藏，处理导航高亮)
+    function renderPage(pageId) {
+        // 如果没有 ID，默认回首页
+        if (!pageId) pageId = 'home';
+
+        // 隐藏所有板块
         const pages = document.querySelectorAll('.page-section');
         pages.forEach(page => {
             page.classList.remove('active-page');
         });
 
-        // 2. Show the selected page
+        // 显示目标板块
         const activePage = document.getElementById('page-' + pageId);
         if (activePage) {
             activePage.classList.add('active-page');
+        } else {
+            // 如果找不到页面（比如输错了网址），回首页
+            document.getElementById('page-home').classList.add('active-page');
         }
 
-        // 3. Update Navigation State
-        const navButtons = document.querySelectorAll('.nav-links button');
+        // 更新顶部导航栏的高亮状态
+        const navButtons = document.querySelectorAll('.nav-links button, .nav-links a');
         navButtons.forEach(btn => {
             btn.classList.remove('active');
         });
         
-        // Special handling for nested detail pages: highlight parent category in nav
+        // 智能高亮逻辑：如果是详情页，保持父级菜单高亮
         let navId = pageId;
-        if (pageId === 'copper-detail') {
-            navId = 'products';
+        // 定义所有详情页与父级菜单的对应关系
+        const parentMap = {
+            'copper-detail': 'products',
+            'fiber-detail': 'products',
+            'rack-detail': 'products',
+            'power-detail': 'power',     // 或者 products，看你归类
+            'monitor-detail': 'monitoring',
+            'cabling-detail': 'cables',
+            'ess-detail': 'ess',         // 对应 Storage 菜单
+            'lowvoltage-detail': 'low_voltage' // 对应 Low Voltage 菜单
+        };
+
+        // 如果是详情页，高亮父级；否则高亮自己
+        if (parentMap[pageId]) {
+            navId = parentMap[pageId];
         }
         
+        // 尝试找到对应的导航按钮并高亮
         const activeBtn = document.getElementById('nav-' + navId);
         if (activeBtn) {
             activeBtn.classList.add('active');
+        } else {
+            // 尝试通过 href 匹配 (针对 <a href> 类型的导航)
+            const linkBtn = document.querySelector(`.nav-links a[href*="${navId}"]`);
+            if (linkBtn) linkBtn.classList.add('active');
         }
 
-        // 4. Scroll to top
+        // 切换页面后自动回到顶部
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+
+    // 2. 点击跳转函数 (用户点击时调用，会修改 URL)
+    function switchPage(pageId) {
+        // 修改浏览器的 URL hash (例如 #products)
+        // 这会自动触发下面的 'hashchange' 事件
+        window.location.hash = pageId;
+    }
+
+    // 3. 监听 URL 变化 (核心：浏览器后退按钮生效的关键)
+    window.addEventListener('hashchange', () => {
+        // 获取 # 后面的内容，去掉 # 号
+        const pageId = window.location.hash.slice(1);
+        renderPage(pageId);
+    });
+
+    // 4. 页面首次加载时处理 (支持直接复制带 # 的链接打开)
+    window.addEventListener('DOMContentLoaded', () => {
+        const pageId = window.location.hash.slice(1) || 'home';
+        renderPage(pageId);
+    });
 </script>
 
 </body>
