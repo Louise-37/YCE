@@ -1024,20 +1024,69 @@
     color: #555;
     margin-bottom: 30px;
 }
+        /* --- Cleanflow 幽灵按钮与布局样式 --- */
+
+/* 1. 确保 Header 使用 Flex 布局，实现 左-中-右 对齐 */
+header {
+    display: flex;
+    justify-content: space-between; /* 关键：让元素分散对齐 */
+    align-items: center;
+    padding: 15px 40px; /* 保持你之前的内边距设置 */
+    background: #fff;
+    border-bottom: 1px solid #eee;
+}
+
+/* 2. 导航菜单保持在中间 (可选，视你的设计偏好而定) */
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+/* 3. Cleanflow 幽灵按钮样式 */
+.btn-cleanflow {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px;
+    
+    /* 幽灵按钮核心：透明底 + 黑框 */
+    background-color: transparent;
+    border: 2px solid var(--text-main); /* 使用深色边框 */
+    color: var(--text-main);
+    
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    white-space: nowrap; /* 防止文字换行 */
+    transition: all 0.3s ease;
+}
+
+/* 鼠标悬停效果：变黑底白字 */
+.btn-cleanflow:hover {
+    background-color: var(--text-main);
+    color: #ffffff;
+    transform: translateY(-2px); /* 微微上浮 */
+}
     </style>
 </head>
 <body>
 
 <header>
     <div class="logo" onclick="switchPage('home')" style="cursor: pointer; display: flex; align-items: center;">
-    <img src="logo.png" alt="YCE Energy Logo" style="height: 20px; width: auto;">
-</div>
+        <img src="logo.png" alt="YCE Energy Logo" style="height: 20px; width: auto;">
+    </div>
+
     <nav class="nav-links">
         <button onclick="switchPage('home')" id="nav-home" class="active">Home</button>
         <button onclick="switchPage('products')" id="nav-products">Products</button>
         <button onclick="switchPage('services')" id="nav-services">Services</button>
         <button onclick="switchPage('contact')" id="nav-contact">Contact</button>
     </nav>
+
+    <div class="header-right">
+        <a href="https://Cleanflow.energy" target="_blank" class="btn-cleanflow">
+            Cleanflow.energy ↗
+        </a>
+    </div>
 </header>
 
 <div id="page-home" class="page-section active-page">
@@ -1100,6 +1149,7 @@
             <p>Unlocking Unique Benefits through our strategic alliances with Dongfang Electric, CIMC, and Cooling Leaders.</p>
         </div>
         <div class="partners-grid">
+            
             <div class="partner-card">
                 <div class="partner-img" style="background-image: url('https://images.unsplash.com/photo-1622628386767-33b53a723378?q=80&w=800&auto=format&fit=crop');">
                     <span class="partner-badge">Partner</span>
@@ -1114,49 +1164,50 @@
                     </ul>
                 </div>
             </div>
+
             <div class="partner-card">
                 <div class="partner-img" style="background-image: url('https://images.unsplash.com/photo-1565514020176-884032877e60?q=80&w=800&auto=format&fit=crop');">
                     <span class="partner-badge">Partner</span>
                 </div>
                 <div class="partner-body">
-    <div class="partner-body">
-    <h3 class="partner-title">Dongfang Electric G50</h3>
-    
-    <p class="partner-intro">
-        A competitor and partner to global energy giants like GE and Siemens, providing high-end equipment for the global energy, petrochemical, and power industries.
-    </p>
-    
-    <ul class="partner-list">
-        <li>"Project-Specific" lines for guaranteed delivery.</li>
-        <li>Competitive pricing & priority spare parts.</li>
-        <li>Full factory support (training & after-sales).</li>
-        <li>Direct access to custom configurations.</li>
-    </ul>
-</div>
+                    <h3 class="partner-title">Dongfang Electric G50</h3>
+                    
+                    <p class="partner-intro">
+                        A competitor and partner to global energy giants like GE and Siemens, providing high-end equipment for the global energy, petrochemical, and power industries.
+                    </p>
+                    
+                    <ul class="partner-list">
+                        <li>"Project-Specific" lines for guaranteed delivery.</li>
+                        <li>Competitive pricing & priority spare parts.</li>
+                        <li>Full factory support (training & after-sales).</li>
+                        <li>Direct access to custom configurations.</li>
+                    </ul>
+                </div>
             </div>
+
             <div class="partner-card">
                 <div class="partner-img" style="background-image: url('https://images.unsplash.com/photo-1518709414768-a88981a45e5d?q=80&w=800&auto=format&fit=crop');">
                     <span class="partner-badge">Regional Agent</span>
                 </div>
                 <div class="partner-body">
-    <h3 class="partner-title">CIMC Engines</h3>
-    
-    <p class="partner-intro">
-        Partnering with leaders like Shell, BP, and Caterpillar, CIMC generates over $30B in annual revenue, operating in 180+ countries to support energy and logistics sectors.
-    </p>
-    
-    <ul class="partner-list">
-        <li>Pricing better than direct factory contact.</li>
-        <li>Priority production agreements.</li>
-        <li>Exclusive full-chain logistics & warehousing.</li>
-        <li>Localized after-sales & issue resolution.</li>
-    </ul>
-</div>
+                    <h3 class="partner-title">CIMC Engines</h3>
+                    
+                    <p class="partner-intro">
+                        Partnering with leaders like Shell, BP, and Caterpillar, CIMC generates over $30B in annual revenue, operating in 180+ countries to support energy and logistics sectors.
+                    </p>
+                    
+                    <ul class="partner-list">
+                        <li>Pricing better than direct factory contact.</li>
+                        <li>Priority production agreements.</li>
+                        <li>Exclusive full-chain logistics & warehousing.</li>
+                        <li>Localized after-sales & issue resolution.</li>
+                    </ul>
+                </div>
             </div>
+
         </div>
     </div>
 </section>
-
 <section class="pm-section">
     <div class="container">
         <div class="section-header">
