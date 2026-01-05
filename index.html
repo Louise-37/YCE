@@ -265,6 +265,23 @@
             font-size: 14px; box-sizing: border-box;
         }
         .form-group input:focus, .form-group select:focus { border-color: var(--primary-orange); outline: none; }
+        /* --- 强制修复：Equipment页面头部线框按钮 --- */
+#fix-hover-btn {
+    /* 默认状态：透明背景，橙色字，橙色框 */
+    background-color: transparent !important;
+    color: #FF5722 !important; /* 您的品牌橙色 */
+    border: 2px solid #FF5722 !important;
+    transition: all 0.3s ease;
+    text-decoration: none !important; /* 去掉下划线 */
+}
+
+#fix-hover-btn:hover {
+    /* 鼠标悬停状态：橙色背景，白色字 */
+    background-color: #FF5722 !important;
+    color: #ffffff !important; /* 强制变白，解决看不见字的问题 */
+    border-color: #FF5722 !important;
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -560,6 +577,7 @@ style="height: 20px; width: auto;">
                         </button>
                         <button class="btn btn-outline" 
                                 style="border: 2px solid var(--primary-orange); background: transparent;" 
+                            <button id="fix-hover-btn"
                                 onclick="document.getElementById('inquiry-form').scrollIntoView({behavior: 'smooth'})">
                             Request Quote
                         </button>
