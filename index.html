@@ -282,6 +282,40 @@
     border-color: #FF5722 !important;
     cursor: pointer;
 }
+        /* --- 仅用于导航栏的黑色幽灵按钮 --- */
+.nav-ghost-btn {
+    /* 1. 布局与对齐核心 */
+    display: inline-flex !important; /* 让它表现得像个盒子，好控制对齐 */
+    align-items: center;  /* 盒子内部文字居中 */
+    justify-content: center;
+    vertical-align: middle; /* 关键：让它和旁边的文字链接垂直对齐 */
+
+    /* 2. 颜色：深黑色 (#333) */
+    color: #333333 !important;
+    border: 1px solid #333333 !important; /* 1px 细边框，显得低调 */
+    background-color: transparent !important;
+
+    /* 3. 尺寸：更小、更精致 */
+    font-size: 13px !important; /* 字体比导航菜单略小一点 */
+    padding: 4px 12px !important; /* 内边距收紧 */
+    border-radius: 4px; /* 小圆角 */
+    
+    /* 4. 间距 */
+    margin-left: 16px !important; /* 与左侧导航保持距离 */
+    text-decoration: none !important;
+    line-height: 1.2; 
+    
+    /* 5. 动画 */
+    transition: all 0.3s ease;
+}
+
+/* 鼠标悬停：黑底白字 */
+.nav-ghost-btn:hover {
+    background-color: #333333 !important;
+    color: #ffffff !important;
+    border-color: #333333 !important;
+    text-decoration: none !important;
+}
     </style>
 </head>
 <body>
@@ -297,6 +331,9 @@ style="height: 20px; width: auto;">
                 <li><button onclick="switchPage('home')" id="nav-home" class="active">Home</button></li>
                 <li><button onclick="switchPage('equipment')" id="nav-equipment">Equipment Supply</button></li>
                 <li><button onclick="switchPage('delivery')" id="nav-delivery">Project Delivery</button></li>
+                <a href="https://cleanflow.energy" target="_blank" class="nav-ghost-btn">
+    CleanFlow ↗
+</a>
             </ul>
         </nav>
         <div class="mobile-menu-btn">☰</div>
