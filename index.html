@@ -195,7 +195,7 @@
             .nav-links { display: none; } /* 暂略移动端菜单细节 */
         }
 /* =========================================
-           5. Equipment Supply 页面专用样式
+           5. Supply Chain 页面专用样式
            ========================================= */
         
         /* Banner 增强 */
@@ -316,6 +316,271 @@
     border-color: #333333 !important;
     text-decoration: none !important;
 }
+/* --- 公用容器设置 (如果您的网站已有 .container 可忽略此段) --- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================= 模块 1: 痛点样式 ================= */
+.section-pain-points {
+    padding: 80px 0;
+    background-color: #f9f9f9; /* 浅灰背景，与白色卡片区分 */
+    text-align: center;
+}
+
+.section-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #1a1a1a;
+}
+
+.pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 响应式网格 */
+    gap: 30px;
+}
+
+.pain-item {
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.pain-item:hover {
+    transform: translateY(-5px); /* 鼠标悬停轻微上浮 */
+}
+
+.pain-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.pain-item h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.pain-item p {
+    font-size: 15px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ================= 模块 2: 业务分流卡片样式 ================= */
+.section-solutions {
+    padding: 80px 0;
+    background-color: #ffffff;
+}
+
+.split-layout {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* 手机端自动换行 */
+}
+
+.solution-card {
+    flex: 1;
+    min-width: 300px; /* 防止在手机上太窄 */
+    height: 450px; /* 卡片高度 */
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-color: #333; /* 图片加载前的底色 */
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* 黑色遮罩层：确保图片上的文字清晰可见 */
+.card-overlay {
+    background: rgba(0, 0, 0, 0.6); /* 60%透明度的黑色 */
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s ease;
+}
+
+.solution-card:hover .card-overlay {
+    background: rgba(0, 0, 0, 0.75); /* 悬停时遮罩加深 */
+}
+
+.card-tag {
+    background-color: #FF5722; /* 品牌橙色 */
+    color: white;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.solution-card h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.card-features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+/* 按钮样式复用（如果没有定义 .btn-primary 可以用这个） */
+.btn-primary {
+    display: inline-block;
+    background-color: #FF5722;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #e64a19; /* 深橙色 */
+}
+/* ================== 【新】Featured Projects 横向滑动样式 ================== */
+
+/* 1. 滑动容器：核心 */
+.scrolling-wrapper {
+    display: flex;
+    flex-wrap: nowrap; /* 强制不换行 */
+    overflow-x: auto;  /* 允许横向滚动 */
+    gap: 30px;         /* 卡片间距 */
+    padding: 20px 5px 40px 5px; /* 下方留出阴影空间 */
+    
+    /* 顺滑滚动与吸附 */
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+}
+
+/* 2. 卡片样式：固定宽度 */
+.project-card {
+    flex: 0 0 350px; /* 【关键】强制每个卡片宽 350px */
+    scroll-snap-align: start; /* 滚动时自动吸附对齐 */
+    
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: 400px; /* 统一高度，防止参差不齐 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 手机端适配：卡片稍微变窄 */
+@media (max-width: 768px) {
+    .project-card {
+        flex: 0 0 300px;
+    }
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* 3. 图片与内容 */
+.project-img-wrapper {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-color: #f5f5f5;
+    flex-shrink: 0;
+}
+
+.project-content {
+    padding: 25px;
+    flex: 1; /* 让内容撑满 */
+    display: flex;
+    flex-direction: column;
+}
+
+.project-content h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #1a1a1a;
+    line-height: 1.4;
+    white-space: normal;
+}
+
+.project-tag {
+    display: inline-block;
+    font-size: 12px;
+    color: #FF5722;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+/* 4. Results 列表样式 */
+.project-results {
+    margin-top: auto;
+    border-top: 1px solid #eeeeee;
+    padding-top: 15px;
+}
+
+.result-label {
+    font-size: 12px;
+    color: #999;
+    font-weight: 700;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.project-results ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-results li {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.project-results li::before {
+    content: "•";
+    color: #FF5722;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+
     </style>
 </head>
 <body>
@@ -329,8 +594,8 @@ style="height: 20px; width: auto;">
         <nav>
             <ul class="nav-links">
                 <li><button onclick="switchPage('home')" id="nav-home" class="active">Home</button></li>
-                <li><button onclick="switchPage('equipment')" id="nav-equipment">Equipment Supply</button></li>
-                <li><button onclick="switchPage('delivery')" id="nav-delivery">Project Delivery</button></li>
+                <li><button onclick="switchPage('equipment')" id="nav-equipment">Supply Chain</button></li>
+                <li><button onclick="switchPage('delivery')" id="nav-delivery">Asset Services</button></li>
                 <a href="https://cleanflow.energy" target="_blank" class="nav-ghost-btn">
     CleanFlow ↗
 </a>
@@ -343,21 +608,84 @@ style="height: 20px; width: auto;">
             
             <div class="hero-section">
                 <div class="hero-content">
-                    <h1 class="hero-title">Unified Power & Cooling Infrastructure</h1>
+                    <h1 class="hero-title">Certainty Delivered. Infrastructure Accelerated.</h1>
                     <p class="hero-subtitle">
-                        Streamlining supply chain and project delivery for data centers and industrial facilities.<br>
-                        <strong>Direct Sourcing. Fast Delivery. Full Accountability.</strong>
+                        We combine Tier-1 supply chain priority with strategic capital solutions to decouple your growth from your debt.<br>
+                       
                     </p>
                     <div class="hero-buttons">
                         <button class="btn btn-primary" onclick="scrollToId('contact')">
-                            Procure Equipment
+                            Explore Supply Chain Solutions
                         </button>
                         <button class="btn btn-outline" onclick="scrollToId('contact')">
-                            View Turnkey Solutions
+                            View Asset Service Models
                         </button>
                     </div>
                 </div>
             </div>
+<section class="section-pain-points">
+    <div class="container">
+        <h2 class="section-title">Why Traditional Infrastructure Models are Failing You</h2>
+        
+        <div class="pain-grid">
+            <div class="pain-item">
+                <div class="pain-icon">⚡</div>
+                <h3>Supply Chain Lag</h3>
+                <p>Don't let 52-week lead times stall your revenue. We bypass the backlog.</p>
+            </div>
+
+            <div class="pain-item">
+                <div class="pain-icon">💰</div>
+                <h3>Capital Deadlock</h3>
+                <p>Stop tying up millions in non-core hardware. Keep your cash for growth.</p>
+            </div>
+
+            <div class="pain-item">
+                <div class="pain-icon">🛠️</div>
+                <h3>Operational Friction</h3>
+                <p>Obsolescence and maintenance are silent profit killers. We own the risk, you own the results.</p>
+            </div>
+
+            <div class="pain-item">
+                <div class="pain-icon">👷</div>
+                <h3>Labor Scarcity</h3>
+                <p>Stop wasting expensive technicians on low-value assembly. Maximize field productivity.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-solutions">
+    <div class="container split-layout">
+        
+        <div class="solution-card left-card" style="background-image: url('https://images.unsplash.com/photo-1759272840538-ae4b07214c71?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8U3VwcGx5JTIwQ2hhaW4lMjBBY2NlbGVyYXRpb258ZW58MHx8MHx8fDA%3D');">
+            <div class="card-overlay">
+                <span class="card-tag">For Contractors</span>
+                <h2>Supply Chain Acceleration</h2>
+                <ul class="card-features">
+                    <li>Focus: Speed</li>
+                    <li>Priority Access</li>
+                    <li>Pre-integration</li>
+                </ul>
+                <a href="equipment.html" class="btn-primary">Accelerate My Project</a>
+            </div>
+        </div>
+
+        <div class="solution-card right-card" style="background-image: url('https://media.istockphoto.com/id/1321274917/photo/battery-storage-power-station-accompanied-by-solar-and-wind-turbine-power-plants-3d-rendering.webp?a=1&b=1&s=612x612&w=0&k=20&c=i9NuQEDkJAXJmeMzlF378rC9UKc2Xy7tB850egvho-A=');">
+            <div class="card-overlay">
+                <span class="card-tag">For Owners / CFOs</span>
+                <h2>Infrastructure-as-a-Service</h2>
+                <ul class="card-features">
+                    <li>Focus: Zero CapEx</li>
+                    <li>Risk Transfer</li>
+                    <li>Shared Savings</li>
+                </ul>
+                <a href="project.html" class="btn-primary">Optimize My Assets</a>
+            </div>
+        </div>
+
+    </div>
+</section>
 
             <div class="advantages-section">
                 <div class="container">
@@ -440,70 +768,143 @@ style="height: 20px; width: auto;">
             <div class="projects-section" style="padding: 80px 20px; background-color: #f9f9f9;">
                 <div class="container" style="position: relative;">
                     <h2 class="section-title">Featured Projects</h2>
+                 <div class="scrolling-wrapper">
+
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://plus.unsplash.com/premium_photo-1679953782394-050faa36cc5d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8U29sYXIlMjBDYXJwb3J0fGVufDB8fDB8fHww');"></div>
+        <div class="project-content">
+            <h3>Power Capacity Upgrade</h3>
+            <span class="project-tag">Light Industrial Facility</span>
+            <div class="project-results">
+                <span class="result-label">Service:</span>
+                <ul>
+                    <li>📍 Texas</li>
+                    <li>⚡️ 1.1MW</li>
                     
-                    <div class="carousel-container" style="overflow: hidden; padding: 20px 0;">
-                        <div class="carousel-track" id="projectTrack" style="display: flex; gap: 20px; transition: transform 0.5s ease;">
-                            
-                            <div class="project-card" style="min-width: 300px; width: 300px; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
-                                <img src="https://plus.unsplash.com/premium_photo-1678865085425-ac8287613770?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8R3JvdW5kLU1vdW50JTIwU29sYXJ8ZW58MHx8MHx8fDA%3D" 
-                                     alt="Ground PV" 
-                                     style="width: 100%; height: 200px; object-fit: cover; display: block;">
-                                
-                                <div style="padding: 20px;">
-                                    <h3 style="font-size: 18px; margin-bottom: 4px; color: #333;">Ground-Mount Solar</h3>
-                                    <p style="font-size: 14px; color: #666; margin-bottom: 5px;">Industrial Park Self-Consumption</p>
-                                    <div style="font-size: 13px; color: #999; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px;">
-                                        📍 California <br>
-                                        ⚡ 500 KW
-                                    </div>
-                                </div>
-                            </div>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-                            <div class="project-card" style="min-width: 300px; width: 300px; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
-                                <img src="https://plus.unsplash.com/premium_photo-1679953782394-050faa36cc5d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8U29sYXIlMjBDYXJwb3J0fGVufDB8fDB8fHww" 
-                                     alt="Solar Carport" 
-                                     style="width: 100%; height: 200px; object-fit: cover; display: block;">
-                                
-                                <div style="padding: 20px;">
-                                    <h3 style="font-size: 18px; margin-bottom: 4px; color: #333;">Solar Carport</h3>
-                                    <p style="font-size: 14px; color: #666; margin-bottom: 5px;">Hospital Staff Parking</p>
-                                    <div style="font-size: 13px; color: #999; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px;">
-                                        📍 Texas <br>
-                                        ⚡ 1.1 MW
-                                    </div>
-                                </div>
-                            </div>
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://images.unsplash.com/photo-1728808668131-76d40d112271?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UG93ZXIlMjBDYXBhY2l0eSUyMFVwZ3JhZGV8ZW58MHx8MHx8fDA%3D');"></div>
+        <div class="project-content">
+            <h3>Cooling System Retrofit</h3>
+            <span class="project-tag">Commercial Building</span>
+            <div class="project-results">
+                <span class="result-label">Service:</span>
+                <ul>
+                    <li>📍 Texas</li>
+                    <li>⚡️ Increased to 0.8 MW</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
 
-                            <div class="project-card" style="min-width: 300px; width: 300px; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
-                                <img src="https://images.unsplash.com/photo-1728808668131-76d40d112271?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8UG93ZXIlMjBDYXBhY2l0eSUyMFVwZ3JhZGV8ZW58MHx8MHx8fDA%3D" 
-                                     alt="Power Upgrade" 
-                                     style="width: 100%; height: 200px; object-fit: cover; display: block;">
-                                
-                                <div style="padding: 20px;">
-                                    <h3 style="font-size: 18px; margin-bottom: 4px; color: #333;">Power Capacity Upgrade</h3>
-                                    <p style="font-size: 14px; color: #666; margin-bottom: 5px;">Light Industrial Facility</p>
-                                    <div style="font-size: 13px; color: #999; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px;">
-                                        📍 Texas <br>
-                                        ⚡ Increased to 0.8 MW
-                                    </div>
-                                </div>
-                            </div>
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://plus.unsplash.com/premium_photo-1682145344450-34d8323dec84?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q29vbGluZyUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D');"></div>
+        <div class="project-content">
+            <h3>Cooling System Retrofit</h3>
+            <span class="project-tag">Commercial Building</span>
+            <div class="project-results">
+                <span class="result-label">Service:</span>
+                <ul>
+                    <li>📍 California</li>
+                    <li>📉 Summer Energy Cut: ~20%</li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
 
-                            <div class="project-card" style="min-width: 300px; width: 300px; background: #fff; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); overflow: hidden;">
-                                <img src="https://plus.unsplash.com/premium_photo-1682145344450-34d8323dec84?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Q29vbGluZyUyMFN5c3RlbXxlbnwwfHwwfHx8MA%3D%3D" 
-                                     alt="Cooling Retrofit" 
-                                     style="width: 100%; height: 200px; object-fit: cover; display: block;">
-                                
-                                <div style="padding: 20px;">
-                                    <h3 style="font-size: 18px; margin-bottom: 4px; color: #333;">Cooling System Retrofit</h3>
-                                    <p style="font-size: 14px; color: #666; margin-bottom: 5px;">Commercial Building</p>
-                                    <div style="font-size: 13px; color: #999; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px;">
-                                        📍 California <br>
-                                        📉 Summer Energy Cut: ~20%
-                                    </div>
-                                </div>
-                            </div>
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://plus.unsplash.com/premium_photo-1678865085425-ac8287613770?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8R3JvdW5kLU1vdW50JTIwU29sYXJ8ZW58MHx8MHx8fDA%3D');"></div>
+        <div class="project-content">
+            <h3>Ground-Mount Solar</h3>
+            <span class="project-tag">Industrial Park Self-Consumption
+</span>
+            <div class="project-results">
+                <span class="result-label">Service:</span>
+                <ul>
+                    <li>📍 California</li>
+                    <li>⚡️500 KW</li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
 
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800');"></div>
+        <div class="project-content">
+            <h3>20-Year-Old Commercial Tower</h3>
+            <span class="project-tag">Efficiency-as-a-Service</span>
+            <div class="project-results">
+                <span class="result-label">The Results:</span>
+                <ul>
+                    <li>40% Energy Reduction.</li>
+                    <li>Net-Positive Cash Flow Day 1.</li>
+                    <li>Increased Building Value (NOI).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800');"></div>
+        <div class="project-content">
+            <h3>Regional Cold-Chain Logistics</h3>
+            <span class="project-tag">Infrastructure-as-a-Service</span>
+            <div class="project-results">
+                <span class="result-label">The Results:</span>
+                <ul>
+                    <li>$800,000 Capital Unlocked.</li>
+                    <li>2X Fleet Expansion.</li>
+                    <li>Zero Maintenance Risk.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://images.unsplash.com/photo-1705943145724-18c0920f5b61?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEVsZWN0cm9uaWNzJTIwRmFjaWxpdHl8ZW58MHx8MHx8fDA%3D');"></div>
+        <div class="project-content">
+            <h3>Precision Electronics Facility</h3>
+            <span class="project-tag">Supply Chain Acceleration</span>
+            <div class="project-results">
+                <span class="result-label">The Results:</span>
+                <ul>
+                    <li>45% Faster Deployment.</li>
+                    <li>80% Reduction in Onsite Labor.</li>
+                    <li>Live ahead of competitors.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <div class="project-img-wrapper" style="background-image: url('https://plus.unsplash.com/premium_photo-1682464883182-948b0f493704?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8VXJiYW4lMjBFZGdlJTIwQUklMjBDb21wdXRlJTIwSHVifGVufDB8fDB8fHww');"></div>
+        <div class="project-content">
+            <h3>Urban Edge AI Compute Hub</h3>
+            <span class="project-tag">Subscription</span>
+            <div class="project-results">
+                <span class="result-label">The Results:</span>
+                <ul>
+                    <li>Zero-Debt Expansion.</li>
+                    <li>Scale-on-Demand ready.</li>
+                    <li>Cloud-Like Simplicity.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+<p style="text-align:center; color:#999; font-size:12px; margin-top:-20px; margin-bottom:40px;">
+    ← Swipe or scroll to view more projects →
+</p>  
+
+                           
                         </div>
                     </div>
 
