@@ -644,8 +644,8 @@ style="height: 20px; width: auto;">
         <nav>
             <ul class="nav-links">
                 <li><button onclick="switchPage('home')" id="nav-home" class="active">Home</button></li>
-                <li><button onclick="switchPage('equipment')" id="nav-equipment">Supply Chain</button></li>
-                <li><button onclick="switchPage('delivery')" id="nav-delivery">Asset Services</button></li>
+                <li><button onclick="switchPage('supply-chain')" id="nav-equipment">Supply Chain</button></li>
+                <li><button onclick="switchPage('asset-services')" id="nav-delivery">Asset Services</button></li>
                 <a href="https://cleanflow.energy" target="_blank" class="nav-ghost-btn">
     CleanFlow ↗
 </a>
@@ -1073,7 +1073,7 @@ style="height: 20px; width: auto;">
             </div>
         </section>
 
-        <section id="equipment" class="page-section">
+        <section id="supply-chain" class="page-section">
             
             <div style="background: linear-gradient(135deg, #FFF3E0 0%, #FFFFFF 100%); color: #333; padding: 96px 20px; text-align: center;">
     
@@ -1398,7 +1398,7 @@ e.g., 5MWh
 
         </section>
 
-        <section id="delivery" class="page-section">
+        <section id="asset-services" class="page-section">
             
             <div style="background: linear-gradient(135deg, #FFF3E0 0%, #FFFFFF 100%); padding: 96px 20px 96px 20px; text-align: center;">
                 <div class="container">
@@ -1665,47 +1665,69 @@ e.g., 5MWh
     </footer>
 
     <script>
-        // 页面切换核心逻辑
-        function switchPage(pageId) {
-            // 1. 隐藏所有带有 .page-section 类的版块
-            const sections = document.querySelectorAll('.page-section');
-            sections.forEach(sec => sec.classList.remove('active'));
-
-            // 2. 找到对应 ID 的版块并显示
-            const target = document.getElementById(pageId);
-            if (target) {
-                target.classList.add('active');
-            } else {
-                console.error("找不到 ID 为 " + pageId + " 的版块，请检查 HTML 标签 ID");
-            }
-
-            // 3. 更新顶部导航按钮的高亮状态
-            const navBtns = document.querySelectorAll('.nav-links button');
-            navBtns.forEach(btn => btn.classList.remove('active'));
-            
-            const activeBtn = document.getElementById('nav-' + pageId);
-            if (activeBtn) {
-                activeBtn.classList.add('active');
-            }
-
-            // 4. 切换后回到顶部
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    /**
+     * 核心页面切换逻辑
+     * @param {string} pageId - 目标板块的 ID (如 'home', 'equipment')
+     * @param {boolean} updateHistory - 是否更新浏览器历史记录 (点击按钮时为 true, 后退时为 false)
+     */
+    function switchPage(pageId, updateHistory = true) {
+        // 1. 如果需要，更新浏览器地址栏 URL (不刷新页面)
+        if (updateHistory) {
+            history.pushState(null, null, '#' + pageId);
         }
 
-        // 辅助功能：滚动到特定区域（如表单）
-        function scrollToId(id) {
-            const el = document.getElementById(id);
-            if(el) el.scrollIntoView({ behavior: 'smooth' });
+        // 2. 隐藏所有带有 .page-section 类的版块
+        const sections = document.querySelectorAll('.page-section');
+        sections.forEach(sec => sec.classList.remove('active'));
+
+        // 3. 找到对应 ID 的版块并显示
+        const target = document.getElementById(pageId);
+        if (target) {
+            target.classList.add('active');
+        } else {
+            console.warn("找不到 ID 为 " + pageId + " 的版块，默认显示 Home");
+            // 如果找不到(比如网址输错)，回退到 home
+            document.getElementById('home').classList.add('active');
         }
 
-        // 初始化：默认显示 Home
-        window.addEventListener('DOMContentLoaded', () => {
-            // 如果网址后面带了 #equipment，就直接跳过去，否则显示 home
-            const hash = window.location.hash.substring(1);
-            if(hash && document.getElementById(hash)) {
-                switchPage(hash);
-            } else {
-                switchPage('home');
-            }
-        });
-    </script>
+        // 4. 更新顶部导航按钮的高亮状态
+        const navBtns = document.querySelectorAll('.nav-links button');
+        navBtns.forEach(btn => btn.classList.remove('active'));
+        
+        // 注意：这里假设按钮 ID 格式为 'nav-pageId'
+        const activeBtn = document.getElementById('nav-' + pageId);
+        if (activeBtn) {
+            activeBtn.classList.add('active');
+        }
+
+        // 5. 切换后回到顶部
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // --- 新增：监听浏览器“后退/前进”按钮 ---
+    window.addEventListener('popstate', () => {
+        // 获取当前 # 后面的 ID，如果没有则默认为 'home'
+        const hash = window.location.hash.substring(1);
+        // 调用切换函数，但传入 false，表示不需要再次写入历史记录
+        switchPage(hash || 'home', false);
+    });
+
+    // --- 辅助功能：页面内滚动 (如 Contact Us 按钮) ---
+    function scrollToId(id) {
+        const el = document.getElementById(id);
+        if(el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // --- 初始化：页面加载时 ---
+    window.addEventListener('DOMContentLoaded', () => {
+        // 1. 检查网址是否带有 hash (例如 domain.com/#equipment)
+        const hash = window.location.hash.substring(1);
+        
+        // 2. 如果有 hash 且该 ID 存在，就显示该页；否则显示 home
+        if(hash && document.getElementById(hash)) {
+            switchPage(hash, false); // 初始化不需要 pushState
+        } else {
+            switchPage('home', false); 
+        }
+    });
+</script>
