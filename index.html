@@ -629,9 +629,14 @@
     padding: 8px 16px;
     border-radius: 20px;
 }
-
-
     </style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      // 👇 把这里换成您的 Public Key (不是 Service ID 哦)
+      emailjs.init("jOH_KxTQLygga7lUl");
+   })();
+</script>
 </head>
 <body>
 
@@ -1350,53 +1355,97 @@ style="height: 20px; width: auto;">
                     <h2 style="color: #333; margin-bottom: 10px;">Get a Quote & Lead Time Check</h2>
                     <p style="color: #666; margin-bottom: 40px;">Fill out the form below. We will get back to you within 48 hours.</p>
                     
-                    <div class="inquiry-form-container" style="border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.08);">
-                        <form onsubmit="event.preventDefault(); alert('Inquiry Submitted!');">
-                            <div class="form-group">
-                                <label style="color: #333;">Project Location(City/State)</label>
-                                <input type="text" placeholder="e.g., San Jose" required style="background:#fff; color:#333; border: 1px solid #ccc;">
-                            </div>
-                            <div class="form-group">
-                                <label style="color: #333;">Area of Interest</label>
-                                <select required style="background:#fff; color:#333; border: 1px solid #ccc;">
-                                    <option value="">Select Category...</option>
-                                    <option value="ess">Energy Storage (ESS)</option>
-                                    <option value="transformer">Transformer / Switchgear</option>
-                                    <option value="cooling">Cooling System</option>
-<option value="ice">Internal Combustion Engine (ICE)</option>
-                                    <option value="gas_turbine">Gas Turbine</option>
-                                    <option value="solar">Solar Power (PV)</option>
-                                    
-                                    <option value="delivery">Full Project Delivery</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                            <div class="grid-3" style="grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 0;">
-                                <div class="form-group">
-                                    <label style="color: #333;">Target Timeline</label>
-                                    <input type="text" 
-           placeholder="e.g., Q1 2026" 
-           style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px; box-sizing: border-box;">
-</div>
-                                <div class="form-group">
-                                    <label style="color: #333;">Capacity / Scale (Optional)</label>
-                                    <input type="text" placeholder="
-e.g., 5MWh
-" style="background:#fff; color:#333; border: 1px solid #ccc;">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label style="color: #333;">Email or Phone</label>
-                                <input type="text" placeholder="user@example.com" required style="background:#fff; color:#333; border: 1px solid #ccc;">
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">Request Quote</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+                    <div class="inquiry-form-container" style="border: 1px solid #eee; box-shadow: 0 10px 30px rgba(0,0,0,0.08); padding: 30px; background: #fff; border-radius: 8px;">
+    
+    <form id="equipment_form">
+        
+        <div class="form-group">
+            <label style="color: #333; display:block; margin-bottom:8px; font-weight:500;">Project Location (City/State)</label>
+            <input type="text" name="project_location" placeholder="e.g., San Jose" required 
+                   style="width: 100%; padding: 12px; background:#fff; color:#333; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+        </div>
 
-        </section>
+        <div class="form-group" style="margin-top: 20px;">
+            <label style="color: #333; display:block; margin-bottom:8px; font-weight:500;">Area of Interest</label>
+            <select name="interest_area" required 
+                    style="width: 100%; padding: 12px; background:#fff; color:#333; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+                <option value="">Select Category...</option>
+                <option value="Energy Storage (ESS)">Energy Storage (ESS)</option>
+                <option value="Transformer / Switchgear">Transformer / Switchgear</option>
+                <option value="Cooling System">Cooling System</option>
+                <option value="Internal Combustion Engine (ICE)">Internal Combustion Engine (ICE)</option>
+                <option value="Gas Turbine">Gas Turbine</option>
+                <option value="Solar Power (PV)">Solar Power (PV)</option>
+                <option value="Full Project Delivery">Full Project Delivery</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <div class="grid-3" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+            <div class="form-group">
+                <label style="color: #333; display:block; margin-bottom:8px; font-weight:500;">Target Timeline</label>
+                <input type="text" name="timeline" placeholder="e.g., Q1 2026" 
+                       style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; box-sizing: border-box;">
+            </div>
+            <div class="form-group">
+                <label style="color: #333; display:block; margin-bottom:8px; font-weight:500;">Capacity / Scale (Optional)</label>
+                <input type="text" name="capacity" placeholder="e.g., 5MWh" 
+                       style="width: 100%; padding: 12px; background:#fff; color:#333; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 20px;">
+            <label style="color: #333; display:block; margin-bottom:8px; font-weight:500;">Email or Phone</label>
+            <input type="text" name="contact_info" placeholder="user@example.com" required 
+                   style="width: 100%; padding: 12px; background:#fff; color:#333; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box;">
+        </div>
+        
+        <button type="submit" id="btn_submit" class="btn btn-primary" style="width: 100%; margin-top: 30px; padding: 15px; background: #FF5722; color: #fff; border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer;">
+            Request Quote
+        </button>
+    </form>
+</div>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function() {
+        // 🔴 第1步：在这里填入你的 Public Key
+        emailjs.init("jOH_KxTQLygga7lUl"); 
+    })();
+
+    document.getElementById('equipment_form').addEventListener('submit', function(event) {
+        event.preventDefault(); // 阻止页面刷新
+
+        // 获取按钮并改变状态，防止重复点击
+        const btn = document.getElementById('btn_submit');
+        const originalText = btn.innerText;
+        btn.innerText = 'Sending...';
+        btn.disabled = true;
+
+        // 🔴 第2步：在这里填入你的 Service ID 和 Template ID
+        const serviceID = 'service_hvmvb7h'; 
+        const templateID = 'template_mwuc2am';
+
+        emailjs.sendForm(serviceID, templateID, this)
+            .then(() => {
+                btn.innerText = 'Message Sent!';
+                btn.style.backgroundColor = '#4CAF50'; // 发送成功变绿色
+                alert('Thank you! We have received your inquiry.');
+                document.getElementById('equipment_form').reset(); // 清空表单
+                
+                // 3秒后恢复按钮
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    btn.style.backgroundColor = '#FF5722';
+                }, 3000);
+            }, (err) => {
+                btn.innerText = 'Failed. Try Again';
+                btn.disabled = false;
+                alert(JSON.stringify(err));
+            });
+    });
+</script>
 
         <section id="asset-services" class="page-section">
             
