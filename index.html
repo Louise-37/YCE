@@ -106,7 +106,9 @@
     <a href="#case" class="nav-link hover:text-yce-orange transition">Case</a>
     <a href="#why-yce" class="nav-link hover:text-yce-orange transition">Why YCE</a>
     <a href="#how-it-works" class="nav-link hover:text-yce-orange transition">How It Works</a>
-    <a href="#about" class="nav-link hover:text-yce-orange transition">About YCE</a>
+    <a href="https://cleanflow.energy/" target="_blank" class="hover:text-yce-orange transition flex items-center">
+    CleanFlow <span class="ml-1 font-normal text-lg leading-none">↗</span>
+</a>
             </div>
             <a href="javascript:void(0)" onclick="toggleModal()" class="bg-yce-orange text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200">GET ASSESSMENT</a>
         </div>
@@ -147,14 +149,16 @@
                     </div>
                 </div>
 
-                <div class="flex flex-wrap gap-6 items-center">
-                    <a href="javascript:void(0)" onclick="toggleModal()" class="group relative px-12 py-5 bg-[#FF8C32] text-white font-bold rounded-full overflow-hidden transition-all shadow-2xl shadow-orange-500/20 hover:scale-105">
-                        <span class="relative z-10 flex items-center gap-3">
-                            Tell Us What You Need <span class="group-hover:translate-x-2 transition-transform duration-300">→</span>
-                        </span>
+                <div class="flex flex-wrap gap-10 items-center">
+                    <a href="#assessment-section" class="group relative px-12 py-5 bg-[#FF8C32] text-white font-bold rounded-full overflow-hidden transition-all shadow-2xl shadow-orange-500/20 hover:scale-105">
+                       <span class="relative z-10 flex items-center gap-3">
+                           Tell Us What You Need <span class="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                       </span>
                     </a>
-                    <a href="#case" class="text-white/60 hover:text-white font-bold text-sm tracking-widest uppercase transition-colors flex items-center gap-3 group">
-                        See What We've Delivered <span class="w-8 h-px bg-white/20 group-hover:w-12 group-hover:bg-[#FF8C32] transition-all"></span>
+
+                    <a href="#case" class="text-white/60 hover:text-white font-bold text-base transition-colors flex items-center gap-3 group">
+                        See What We've Delivered 
+                       <span class="w-8 h-px bg-white/20 group-hover:w-12 group-hover:bg-[#FF8C32] transition-all"></span>
                     </a>
                 </div>
             </div>
@@ -189,7 +193,7 @@
                 <h2 class="text-5xl md:text-7xl font-black text-[#1F2933] tracking-tighter leading-none mb-10">
                     The Four <br><span class="text-[#FF8C32]">Outcomes.</span>
                 </h2>
-                <div class="max-w-2xl border-l-2 border-[#FF8C32] pl-8">
+                <div class="max-w-3xl border-l-2 border-[#FF8C32] pl-8">
                     <p class="text-xl text-[#1F2933] font-bold mb-2">Not a system integration service. Not a retrofit proposal.</p>
                     <p class="text-gray-500 leading-relaxed">
                         The energy your facility consumes every day — delivered on demand, charged by results.
@@ -502,87 +506,100 @@
 
                 <div class="lg:w-2/3 w-full bg-white p-10 md:p-14 rounded-[48px] shadow-2xl shadow-gray-200">
                     <form action="#" class="space-y-8">
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name </label>
-                                <input type="text" placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name </label>
-                                <input type="text" placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                            </div>
-                        </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name <span class="text-[#FF8C32]">*</span></label>
+            <input type="text" required placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name <span class="text-[#FF8C32]">*</span></label>
+            <input type="text" required placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+    </div>
 
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Business Email </label>
-                                <input type="email" placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Facility Type </label>
-                                <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                                    <option>Data Center </option>
-                                    <option>Industrial Plant </option>
-                                    <option>Commercial Real Estate </option>
-                                    <option>Medical Facility </option>
-                                </select>
-                            </div>
-                        </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Business Email <span class="text-[#FF8C32]">*</span></label>
+            <input type="email" required placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Phone Number <span class="text-gray-300 font-normal italic">(Optional)</span></label>
+            <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+    </div>
 
-                        <div class="space-y-4">
-                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes </label>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                            </div>
-                        </div>
+    <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Facility Type <span class="text-[#FF8C32]">*</span></label>
+        <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+            <option value="" disabled selected>Select facility type...</option>
+            <option>Data Center / 数据中心</option>
+            <option>Industrial Plant / 工业厂房</option>
+            <option>Commercial Real Estate / 商业地产</option>
+            <option>Medical Facility / 医疗机构</option>
+            <option>Campus / 校园 / 园区</option>
+            <option>Cold Chain & Logistics / 冷链 / 仓储物流</option>
+            <option>Hotel & Mixed-use / 酒店 / 综合体</option>
+            <option>Government & Municipal / 政府 / 市政</option>
+            <option>Other / 其他</option>
+        </select>
+    </div>
 
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Scale </label>
-                                <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                                    <option>$250k - $1M </option>
-                                    <option>$1M - $5M </option>
-                                    <option>$5M+ </option>
-                                </select>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Target Timeline </label>
-                                <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                                    <option>Within 3 Months </option>
-                                    <option>3-6 Months </option>
-                                    <option>Still Planning </option>
-                                </select>
-                            </div>
-                        </div>
+    <div class="space-y-4">
+        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes <span class="text-[#FF8C32]">*</span></label>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" name="outcomes" value="Power" class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+            </label>
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" name="outcomes" value="Cooling" class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+            </label>
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" name="outcomes" value="Thermal" class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+            </label>
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" name="outcomes" value="Efficiency" class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
+            </label>
+        </div>
+    </div>
 
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Additional Challenges </label>
-                            <textarea rows="4" placeholder="Describe your specific facility challenges..." class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all"></textarea>
-                        </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Scale <span class="text-[#FF8C32]">*</span></label>
+            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+                <option value="" disabled selected>Select scale...</option>
+                <option>$250k - $1M</option>
+                <option>$1M - $5M</option>
+                <option>$5M+</option>
+            </select>
+        </div>
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Target Timeline <span class="text-[#FF8C32]">*</span></label>
+            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+                <option value="" disabled selected>Select timeline...</option>
+                <option>Within 3 Months</option>
+                <option>3-6 Months</option>
+                <option>Still Planning</option>
+            </select>
+        </div>
+    </div>
 
-                        <button type="submit" class="w-full bg-[#FF8C32] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#1F2933] transition-all shadow-xl shadow-orange-200">
-                            Submit Assessment Request → 
-                        </button>
-                    </form>
+    <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Main Energy Challenge <span class="text-gray-300 font-normal italic">(Optional)</span></label>
+        <textarea rows="4" placeholder="What is your biggest energy-related problem today?" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all resize-none"></textarea>
+    </div>
+
+    <button type="submit" class="w-full bg-[#FF8C32] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#1F2933] transition-all shadow-xl shadow-orange-200">
+        Submit Assessment Request → 
+    </button>
+</form>
                 </div>
             </div>
 
@@ -604,14 +621,14 @@
                 <span class="text-[#FF8C32]">Real results.</span>
             </h1>
 
-            <div class="space-y-6">
+            <div class="space-y-8">
                 <p class="text-xl md:text-2xl text-gray-500 font-light leading-relaxed max-w-3xl">
                     Power plants, campus energy systems, commercial high-rises. 
                     <span class="text-[#1F2933] font-bold">Different problems. One standard: results that can be measured.</span>
                 </p>
 
-                <div class="pt-4 border-t border-gray-100 w-fit">
-                    <p class="text-[10px] md:text-[11px] text-gray-300 uppercase tracking-[0.2em] leading-relaxed">
+                <div class="pt-6 border-t border-gray-100 w-fit">
+                    <p class="text-sm md:text-base text-gray-400 font-normal leading-relaxed">
                         Delivered by our team. Before YCE existed.<br>
                         This is the experience we bring to every project.
                     </p>
@@ -620,7 +637,6 @@
         </div>
     </div>
 </div>
-
 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
                 
                 <a href="#case-office" class="group block border border-gray-100 rounded-[32px] overflow-hidden hover:shadow-2xl hover:border-yce-orange transition-all duration-500 bg-white">
@@ -734,17 +750,17 @@
 
                 <a href="#case-solar" class="group block border border-gray-100 rounded-[32px] overflow-hidden hover:shadow-2xl hover:border-yce-orange transition-all duration-500 bg-white">
     <div class="h-52 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1509391366360-fe5bb65830bb?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Solar + Storage">
+        <img src="https://pub-98c802b583274434ae2356cf1e8df321.r2.dev/YCE%20%E6%A1%88%E4%BE%8B7%E5%8D%A1%E7%89%87.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Dubai CSP + PV">
     </div>
     <div class="p-8">
         <div class="flex gap-2 mb-4">
             <span class="text-[10px] font-bold bg-orange-100 text-yce-orange px-2 py-1 rounded uppercase">Power</span>
         </div>
-        <h4 class="text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest">Utility PV + Storage · Europe</h4>
-        <p class="text-lg font-bold mb-6 text-[#1F2933] leading-tight">342MW Solar integrated with 150MW BESS Storage.</p>
+        <h4 class="text-[10px] font-bold text-gray-400 mb-2 uppercase tracking-widest">CSP + PV Hybrid · Middle East</h4>
+        <p class="text-lg font-bold mb-6 text-[#1F2933] leading-tight">Dubai 950MW Concentrated Solar & PV Hybrid Power Plant.</p>
         <div class="space-y-2 mb-8 border-t border-gray-50 pt-6">
-            <div class="text-sm font-bold text-yce-orange">Capacity: 342MW Solar</div>
-            <div class="text-sm font-bold text-[#1F2933]">Storage: 150MW BESS</div>
+            <div class="text-sm font-bold text-yce-orange">Total Capacity: 950MW</div>
+            <div class="text-sm font-bold text-[#1F2933]">World's Largest Single-Site CSP</div>
         </div>
         <span class="text-xs font-black uppercase tracking-widest text-[#1F2933] group-hover:text-yce-orange">View Details →</span>
     </div>
@@ -1086,10 +1102,6 @@
                     </div>
 
                 </div>
-            </div>
-            
-            <div class="mt-20 text-[10px] text-gray-400 uppercase tracking-widest leading-relaxed text-right">
-                Disclaimer: Financing subject to credit approval. Terms vary by project specs and location. YCE Energy does not provide tax or legal advice. 
             </div>
         </div>
 
@@ -1445,148 +1457,7 @@
         </div>
     </section>
 
-    <section id="assessment-section" class="py-24 bg-[#F5F7FA]">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="flex flex-col lg:flex-row gap-20 items-start mb-32">
-                <div class="lg:w-1/3 pt-8">
-                    <span class="text-[#FF8C32] font-bold tracking-[0.3em] uppercase text-xs block mb-6">Inquiry</span>
-                    <h2 class="text-5xl font-extrabold text-[#1F2933] leading-tight mb-8">
-                        Precision <br>meets <br><span class="text-[#FF8C32]">Sustainability.</span>
-                    </h2>
-                    <p class="text-[#6B7280] leading-relaxed mb-10">
-                        Provide your facility details below. Our team analyzes your data to build a custom energy roadmap within 24 hours.
-                    </p>
-                    <div class="p-8 bg-[#1F2933] rounded-[32px] text-white shadow-2xl shadow-gray-400/20">
-                        <p class="text-sm italic font-light opacity-80 leading-relaxed">
-                            "We provide the technical clarity; you maintain full operational control. No upfront commitment required."
-                        </p>
-                    </div>
-                </div>
 
-                <div class="lg:w-2/3 w-full bg-white p-10 md:p-14 rounded-[48px] shadow-2xl shadow-gray-200">
-                    <form action="#" class="space-y-8">
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name </label>
-                                <input type="text" placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name </label>
-                                <input type="text" placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                            </div>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Business Email </label>
-                                <input type="email" placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Facility Type </label>
-                                <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                                    <option>Data Center </option>
-                                    <option>Industrial Plant </option>
-                                    <option>Commercial Real Estate </option>
-                                    <option>Medical Facility </option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-4">
-                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes </label>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                                <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                                    <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                                    <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency </span>
-                                    <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="grid md:grid-cols-2 gap-8">
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Scale </label>
-                                <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                                    <option>$250k - $1M </option>
-                                    <option>$1M - $5M </option>
-                                    <option>$5M+ </option>
-                                </select>
-                            </div>
-                            <div class="space-y-2">
-                                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Target Timeline </label>
-                                <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                                    <option>Within 3 Months </option>
-                                    <option>3-6 Months </option>
-                                    <option>Still Planning </option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Additional Challenges </label>
-                            <textarea rows="4" placeholder="Describe your specific facility challenges..." class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-[#FF8C32] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#1F2933] transition-all shadow-xl shadow-orange-200">
-                            Submit Assessment Request → 
-                        </button>
-                    </form>
-                </div>
-            </div>
-
-            <div class="relative pt-24 border-t border-gray-200">
-                <div class="flex flex-col md:flex-row justify-between gap-12 relative">
-                    <div class="hidden md:block absolute top-14 left-0 w-full h-0.5 bg-gray-100"></div>
-                    
-                    <div class="relative flex-1 group">
-                        <div class="relative z-10 w-14 h-14 bg-white border-4 border-[#F5F7FA] rounded-2xl shadow-lg flex items-center justify-center mb-8 group-hover:border-[#FF8C32] transition-all duration-500">
-                            <span class="text-[#FF8C32] font-black">01</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3 text-[#1F2933]">Technical Response </h4>
-                        <p class="text-sm text-[#6B7280] leading-relaxed max-w-xs">
-                            Engineering consultation and initial verdict within <span class="text-[#1F2933] font-semibold">24 hours</span>.
-                        </p>
-                    </div>
-
-                    <div class="relative flex-1 group">
-                        <div class="relative z-10 w-14 h-14 bg-white border-4 border-[#F5F7FA] rounded-2xl shadow-lg flex items-center justify-center mb-8 group-hover:border-[#FF8C32] transition-all duration-500">
-                            <span class="text-[#FF8C32] font-black">02</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3 text-[#1F2933]">On-site Audit </h4>
-                        <p class="text-sm text-[#6B7280] leading-relaxed max-w-xs">
-                            A free, deep-dive evaluation of your facility’s specific energy infrastructure.
-                        </p>
-                    </div>
-
-                    <div class="relative flex-1 group">
-                        <div class="relative z-10 w-14 h-14 bg-[#1F2933] border-4 border-[#F5F7FA] rounded-2xl shadow-lg flex items-center justify-center mb-8">
-                            <span class="text-white font-black">03</span>
-                        </div>
-                        <h4 class="text-xl font-bold mb-3 text-[#1F2933]">Financial Roadmap </h4>
-                        <p class="text-sm text-[#6B7280] leading-relaxed max-w-xs">
-                            Transparent metrics on what you pay, what you save, and your <span class="text-[#1F2933] font-semibold">monthly net gain</span>.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
 <div id="page-case-office" class="page-content">
  <div class="case-detail-wrapper" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #4B5563; line-height: 1.6; background-color: #FFFFFF; text-align: left;">
@@ -1599,7 +1470,7 @@
         </div>
 
         <div style="display: flex; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;">
-            <div style="flex: 7; min-width: 300px; background-image: url('https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
+            <div style="flex: 7; min-width: 300px; background-image: url('https://images.unsplash.com/photo-1761301006411-741575a2ca31?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
             <div style="flex: 3; min-width: 250px; padding: 20px 0;">
                 <div style="margin-bottom: 24px;"><span style="display: block; font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">Type:</span><span style="font-size: 15px;">Commercial High-Rise Full Electrification & Energy Upgrade</span></div>
                 <div style="margin-bottom: 24px;"><span style="display: block; font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">Region:</span><span style="font-size: 15px;">Manhattan Financial District, New York City, USA</span></div>
@@ -1710,7 +1581,7 @@
         </div>
 
         <div style="display: flex; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;">
-            <div style="flex: 7; min-width: 300px; background-image: url('https://images.unsplash.com/photo-1580983546087-f827a56bfcb8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
+            <div style="flex: 7; min-width: 300px; background-image: url('https://pub-98c802b583274434ae2356cf1e8df321.r2.dev/YCE%20%E6%A1%88%E4%BE%8B2%E8%AF%A6%E6%83%85%E9%A1%B5.webp'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
             
             <div style="flex: 3; min-width: 250px; padding: 20px 0;">
                 <div style="margin-bottom: 24px;"><span style="display: block; font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">Type:</span><span style="font-size: 15px;">Industrial Cooling System Replacement</span></div>
@@ -1815,7 +1686,7 @@
         </div>
 
         <div style="display: flex; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;">
-            <div style="flex: 7; min-width: 300px; background-image: url('https://images.unsplash.com/photo-1541888086425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
+            <div style="flex: 7; min-width: 300px; background-image: url('https://pub-98c802b583274434ae2356cf1e8df321.r2.dev/YCE%20%E6%A1%88%E4%BE%8B3%E8%AF%A6%E6%83%85%E9%A1%B5%E6%9B%BF%E6%8D%A2.jpg'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
             
             <div style="flex: 3; min-width: 250px; padding: 20px 0;">
                 <div style="margin-bottom: 24px;"><span style="display: block; font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">Type:</span><span style="font-size: 15px;">Full Campus Central Energy System Restructure</span></div>
@@ -1925,7 +1796,7 @@
         </div>
 
         <div style="display: flex; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;">
-            <div style="flex: 7; min-width: 300px; background-image: url('https://images.unsplash.com/photo-1581093450021-4a7360e9a6b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
+            <div style="flex: 7; min-width: 300px; background-image: url('https://pub-98c802b583274434ae2356cf1e8df321.r2.dev/YCE%20%E6%A1%88%E4%BE%8B4%E8%AF%A6%E6%83%85%E9%A1%B5%E6%9B%BF%E6%8D%A2.jpg'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
             
             <div style="flex: 3; min-width: 250px; padding: 20px 0;">
                 <div style="margin-bottom: 24px;"><span style="display: block; font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">Type:</span><span style="font-size: 15px;">Central Campus Chiller Plant Upgrade</span></div>
@@ -2029,7 +1900,7 @@
         </div>
 
         <div style="display: flex; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;">
-            <div style="flex: 7; min-width: 300px; background-image: url('https://images.unsplash.com/photo-1466611653911-95282fc3656b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
+            <div style="flex: 7; min-width: 300px; background-image: url('https://pub-98c802b583274434ae2356cf1e8df321.r2.dev/YCE%20%E6%A1%88%E4%BE%8B5%E8%AF%A6%E6%83%85%E9%A1%B5%E5%9B%BE%E7%89%87.jpg'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
             
             <div style="flex: 3; min-width: 250px; padding: 20px 0;">
                 <div style="margin-bottom: 24px;"><span style="display: block; font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">Type:</span><span style="font-size: 15px;">Renewable Energy · Biomass Combustion</span></div>
@@ -2123,7 +1994,7 @@
         </div>
 
         <div style="display: flex; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;">
-            <div style="flex: 7; min-width: 300px; background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
+            <div style="flex: 7; min-width: 300px; background-image: url('https://pub-98c802b583274434ae2356cf1e8df321.r2.dev/YCE%20%E6%A1%88%E4%BE%8B6%E8%AF%A6%E6%83%85%E9%A1%B5%E5%9B%BE%E7%89%87%E6%9B%BF%E6%8D%A2.jpg'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
             
             <div style="flex: 3; min-width: 250px; padding: 20px 0;">
                 <div style="margin-bottom: 24px;"><span style="display: block; font-size: 13px; font-weight: 700; color: #1F2937; margin-bottom: 4px;">Type:</span><span style="font-size: 15px;">Gas-Fired Combined Cycle Power Plant (CCPP)</span></div>
@@ -2208,6 +2079,105 @@
     </div>
 
 <div id="page-case-solar" class="page-content">
+<div class="case-detail-wrapper" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #4B5563; line-height: 1.6; background-color: #FFFFFF; text-align: left;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 100px 40px 0;">
+        <div style="padding-bottom: 30px;">
+            <div style="font-size: 14px; color: #6B7280; margin-bottom: 20px;">Cases / Power / CSP + PV Hybrid Power Plant · Middle East</div>
+            <h1 style="font-size: 42px; font-weight: 300; color: #1F2937; margin: 0; line-height: 1.2;">Dubai 950MW CSP + PV Hybrid Power Plant<br>
+                <span style="font-weight: 600; font-size: 32px; color: #4B5563;">Dubai, UAE · Middle East</span>
+            </h1>
+        </div>
+
+        <div style="display: flex; gap: 40px; margin-bottom: 50px; flex-wrap: wrap;">
+            <div style="flex: 7; min-width: 300px; background-image: url('https://pub-98c802b583274434ae2356cf1e8df321.r2.dev/YCE%20%E6%A1%88%E4%BE%8B7%E8%AF%A6%E6%83%85%E9%A1%B5.png'); background-size: cover; background-position: center; min-height: 500px; border-radius: 4px;"></div>
+            
+            <div style="flex: 3; min-width: 250px; padding: 20px 0;">
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">Type:</span><span style="font-size: 14px;">Concentrated Solar Power + Photovoltaic Hybrid</span></div>
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">Region:</span><span style="font-size: 14px;">Dubai, United Arab Emirates</span></div>
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">Total Capacity:</span><span style="font-size: 14px; color: #FF5722; font-weight: 600;">950MW</span></div>
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">CSP:</span><span style="font-size: 14px;">700MW · Tower Heliostat Technology</span></div>
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">PV:</span><span style="font-size: 14px;">250MW</span></div>
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">Delivery:</span><span style="font-size: 14px;">Full EPC Turnkey</span></div>
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">Outcome:</span><span style="font-size: 14px;">Power</span></div>
+                <div style="margin-bottom: 20px;"><span style="display: block; font-size: 12px; font-weight: 700; color: #1F2937; margin-bottom: 2px; text-transform: uppercase; letter-spacing: 0.5px;">Client:</span><span style="font-size: 14px;">Dubai Electricity & Water Authority (DEWA)</span></div>
+            </div>
+        </div>
+
+        <div style="max-width: 900px; font-size: 16px; margin-bottom: 60px;">
+            One of the world's largest single-site CSP + PV hybrid power projects.<br><br>
+            Delivered for Dubai's primary public utility DEWA — <strong>950MW total capacity</strong>, tower heliostat technology, full EPC turnkey. [cite: 2222]
+        </div>
+    </div>
+
+    <div style="background-color: #2A303C; color: #FFFFFF; padding: 60px 0; margin-bottom: 60px;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; text-align: center; flex-wrap: wrap; gap: 40px;">
+            <div style="flex: 1; min-width: 150px; padding: 0 15px;">
+                <div style="font-size: 38px; font-weight: 700; margin-bottom: 8px; line-height: 1.1;">950MW</div>
+                <div style="font-size: 13px; color: #D1D5DB;">Total Installed Capacity</div>
+            </div>
+            <div style="flex: 1; min-width: 150px; padding: 0 15px;">
+                <div style="font-size: 38px; font-weight: 700; margin-bottom: 8px; line-height: 1.1;">700MW</div>
+                <div style="font-size: 13px; color: #D1D5DB;">Concentrated Solar Power</div>
+            </div>
+            <div style="flex: 1; min-width: 150px; padding: 0 15px;">
+                <div style="font-size: 38px; font-weight: 700; margin-bottom: 8px; line-height: 1.1;">250MW</div>
+                <div style="font-size: 13px; color: #D1D5DB;">Photovoltaic</div>
+            </div>
+            <div style="flex: 1; min-width: 150px; padding: 0 15px;">
+                <div style="font-size: 38px; font-weight: 700; margin-bottom: 8px; line-height: 1.1; color: #FF5722;">World's Largest</div>
+                <div style="font-size: 13px; color: #D1D5DB;">Single-Site Hybrid Project</div>
+            </div>
+        </div>
+    </div>
+
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 40px;">
+        <div style="max-width: 900px; margin-bottom: 80px;">
+            <div style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; font-weight: 400; color: #1F2937; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid #E5E7EB;">The Challenge</h2>
+                <p>Dubai faced two simultaneous strategic imperatives:</p>
+                <ul style="padding-left: 20px; margin: 0;">
+                    <li style="margin-bottom: 12px;">Rapid urban growth demanded large-scale, around-the-clock clean power — solar PV alone could not meet continuous generation requirements [cite: 2226]</li>
+                    <li style="margin-bottom: 12px;">CSP and PV had to be unified into a single coherent generation platform, requiring world-class engineering integration [cite: 2226]</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; font-weight: 400; color: #1F2937; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid #E5E7EB;">The Outcome</h2>
+                <div style="margin-bottom: 30px;">
+                    <div style="font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 8px;">World-Scale Clean Power Delivery</div>
+                    <p style="margin: 0;">700MW CSP provides dispatchable baseload power. 250MW PV supplements daytime generation. Together they deliver continuous, reliable electricity around the clock. [cite: 2228]</p>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <div style="font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 8px;">Frontier Technology at Scale</div>
+                    <p style="margin: 0;">Tower-based wireless heliostat technology — one of the most advanced thermal solar approaches available. Deploying this at 700MW is an industry milestone in itself. [cite: 2229]</p>
+                </div>
+                <div style="margin-bottom: 30px;">
+                    <div style="font-size: 18px; font-weight: 700; color: #1F2937; margin-bottom: 8px;">Tier-1 Client, Full EPC Accountability</div>
+                    <p style="margin: 0;">Delivered for DEWA — the most consequential public utility in the Middle East. Shareholders include DEWA, ACWA Power, and Silk Road Fund. Single-responsibility EPC delivery throughout. [cite: 2231]</p>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 50px;">
+                <h2 style="font-size: 24px; font-weight: 400; color: #1F2937; margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid #E5E7EB;">Why This Is Relevant to Your Facility</h2>
+                <p>The scale may differ. The technology may differ. [cite: 2232]</p>
+                <div style="background-color: #F9FAFB; border-left: 3px solid #FF5722; padding: 20px; margin-top: 20px; font-size: 16px; color: #1F2937;">
+                    <p style="margin-bottom: 10px;"><strong>Our team has delivered at the most demanding level this industry has seen.</strong></p>
+                    <p style="font-weight: 700; margin: 0; font-style: normal;">The capability to be accountable for results applies to every project size. [cite: 2233]</p>
+                </div>
+            </div>
+
+            <div style="text-align: left; border-top: 1px solid #E5E7EB; padding-top: 60px; margin-bottom: 40px;">
+                <h3 style="font-size: 24px; color: #1F2937; margin-bottom: 15px;">Have a large-scale power infrastructure requirement?</h3>
+                <p>Tell us what you need. We'll tell you what we can deliver. [cite: 2234]</p>
+                <a href="javascript:void(0)" onclick="toggleModal()" style="display: inline-block; background-color: #FF5722; color: #FFFFFF; text-decoration: none; padding: 12px 24px; font-size: 15px; font-weight: 600; margin-top: 20px; border-radius: 4px;">Request Free Assessment &rarr;</a>
+            </div>
+
+            <div style="font-size: 12px; color: #9CA3AF; margin-top: 60px; padding-bottom: 40px;">
+                *This project was contributed to by YCE team members during their previous careers. [cite: 2235]
+            </div>
+        </div>
+    </div>
+</div>
     </div>
 <div id="page-about" class="page-content">...</div>
 
@@ -2228,6 +2198,7 @@
             <div>© 2026 YCE Energy. All rights reserved.</div>
         </div>
     </footer>
+
 <div id="form-modal">
     <div class="modal-content">
         <button onclick="toggleModal()" class="absolute top-6 right-8 text-gray-400 hover:text-yce-orange text-3xl font-light">✕</button>
@@ -2238,88 +2209,101 @@
             <p class="text-gray-500 mt-2">Provide your facility details below to build your roadmap within 24 hours.</p>
         </div>
 
-        <form action="#" class="space-y-8">
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name</label>
-                    <input type="text" placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name</label>
-                    <input type="text" placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                </div>
-            </div>
+<form action="#" class="space-y-8">
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name <span class="text-[#FF8C32]">*</span></label>
+            <input type="text" required placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name <span class="text-[#FF8C32]">*</span></label>
+            <input type="text" required placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+    </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Business Email</label>
-                    <input type="email" placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Facility Type</label>
-                    <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                        <option>Data Center</option>
-                        <option>Industrial Plant</option>
-                        <option>Commercial Real Estate</option>
-                        <option>Medical Facility</option>
-                    </select>
-                </div>
-            </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Business Email <span class="text-[#FF8C32]">*</span></label>
+            <input type="email" required placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Phone Number <span class="text-gray-300 font-normal italic">(Optional)</span></label>
+            <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+        </div>
+    </div>
 
-            <div class="space-y-4">
-                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes</label>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                        <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                        <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power</span>
-                        <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                    </label>
-                    <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                        <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                        <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling</span>
-                        <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                    </label>
-                    <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                        <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                        <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal</span>
-                        <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                    </label>
-                    <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                        <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                        <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency</span>
-                        <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-                    </label>
-                </div>
-            </div>
+    <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Facility Type <span class="text-[#FF8C32]">*</span></label>
+        <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+            <option value="" disabled selected>Select facility type...</option>
+            <option>Data Center / 数据中心</option>
+            <option>Industrial Plant / 工业厂房</option>
+            <option>Commercial Real Estate / 商业地产</option>
+            <option>Medical Facility / 医疗机构</option>
+            <option>Campus / 校园 / 园区</option>
+            <option>Cold Chain & Logistics / 冷链 / 仓储物流</option>
+            <option>Hotel & Mixed-use / 酒店 / 综合体</option>
+            <option>Government & Municipal / 政府 / 市政</option>
+            <option>Other / 其他</option>
+        </select>
+    </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Scale</label>
-                    <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                        <option>$250k - $1M</option>
-                        <option>$1M - $5M</option>
-                        <option>$5M+</option>
-                    </select>
-                </div>
-                <div class="space-y-2">
-                    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Target Timeline</label>
-                    <select class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500">
-                        <option>Within 3 Months</option>
-                        <option>3-6 Months</option>
-                        <option>Still Planning</option>
-                    </select>
-                </div>
-            </div>
+    <div class="space-y-4">
+        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes <span class="text-[#FF8C32]">*</span></label>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" required class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+            </label>
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+            </label>
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+            </label>
+            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+                <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
+                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency</span>
+                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+            </label>
+        </div>
+    </div>
 
-            <div class="space-y-2">
-                <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Additional Challenges</label>
-                <textarea rows="4" placeholder="Describe your specific facility challenges..." class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all"></textarea>
-            </div>
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Scale <span class="text-[#FF8C32]">*</span></label>
+            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+                <option value="" disabled selected>Select scale...</option>
+                <option>$250k - $1M</option>
+                <option>$1M - $5M</option>
+                <option>$5M+</option>
+            </select>
+        </div>
+        <div class="space-y-2">
+            <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Target Timeline <span class="text-[#FF8C32]">*</span></label>
+            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+                <option value="" disabled selected>Select timeline...</option>
+                <option>Within 3 Months</option>
+                <option>3-6 Months</option>
+                <option>Still Planning</option>
+            </select>
+        </div>
+    </div>
 
-            <button type="submit" class="w-full bg-[#FF8C32] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#1F2933] transition-all shadow-xl shadow-orange-200">
-                Submit Assessment Request → 
-            </button>
-        </form>
+    <div class="space-y-2">
+        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Main Energy Challenge <span class="text-gray-300 font-normal italic">(Optional)</span></label>
+        <textarea rows="4" placeholder="What is your biggest energy-related problem today?" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all resize-none"></textarea>
+    </div>
+
+    <button type="submit" class="w-full bg-[#FF8C32] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#1F2933] transition-all shadow-xl shadow-orange-200">
+        Submit Assessment Request → 
+    </button>
+</form>
     </div>
 </div>
 
