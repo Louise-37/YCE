@@ -2917,6 +2917,7 @@ function estToggleSvc(el, svc) {
 function estNext(n) {
   if (n===1 && !estState.country) { alert('Please select your location.'); return; }
   if (n===2 && !estState.facility) { alert('Please select a facility type.'); return; }
+  if (n===3 && estState.svcs.length === 0) { alert('Please select at least 1 objective.'); return; }
   if (n===4 && !estState.spend) { alert('Please select your monthly energy spend.'); return; }
   document.getElementById('estep-'+estState.step).classList.remove('active');
   const cp = document.getElementById('p'+estState.step);
