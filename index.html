@@ -2952,6 +2952,14 @@ function estAnimateLoading() {
   }, 2400);
 }
 
+function estShowError(message) {
+  document.getElementById('est-loading').classList.remove('active');
+  document.getElementById('estep-4').classList.add('active');
+  const err = document.getElementById('est-err');
+  err.textContent = message;
+  err.classList.add('show');
+}
+
 const EST_FALLBACK_CASES = `CASE 1
 Title: 55 Water Street — Full Cooling & Heat Recovery System Upgrade
 Location: Manhattan, New York, USA · North America
@@ -3044,19 +3052,13 @@ async function estFetchLiveCases() {
 }
 
 async function estCallAI() {
-  // ── 你的 Cloudflare Worker 地址，替换 YOUR-SUBDOMAIN ──────────
   const PROXY_URL = 'https://yce-estimator-proxy.louisewang037.workers.dev';
-
-  // ── 尝试获取最新案例库 ────────────────────────────────────────
   const liveCases = await estFetchLiveCases();
   const caseLibrary = liveCases || EST_FALLBACK_CASES;
   const systemPrompt = EST_SYSTEM + `\n\nCASE LIBRARY (${new Date().toISOString().split('T')[0]}):\n${caseLibrary}`;
-
-  // ── 构建用户消息 ──────────────────────────────────────────────
   const objectives = estState.svcs.length
     ? estState.svcs.map(s => estSvcNames[s]).join('; ')
     : 'not specified';
-
   const msg = `Company: ${estState.company}
 Contact: ${estState.name}
 Location: ${estCountryNames[estState.country] || estState.country}
@@ -3069,49 +3071,73 @@ Monthly Energy Spend: ${estSpendNames[estState.spend]}`;
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        system:   systemPrompt,
+        system: systemPrompt,
         messages: [{ role: 'user', content: msg }],
       }),
     });
-
-    // ── 限流处理 ────────────────────────────────────────────────
     if (res.status === 429) {
       const errData = await res.json().catch(() => ({}));
       estShowError(errData.message || 'Daily analysis limit reached. Please try again tomorrow or contact support@yce.energy.');
       return;
     }
-
-    // ── 其他错误 ────────────────────────────────────────────────
     if (!res.ok) {
       estShowError('Analysis failed. Please try again in a moment.');
       return;
     }
-
     const data = await res.json();
-    const raw  = data.content?.[0]?.text || '';
-
+    const raw = data.content?.[0]?.text || '';
     let report;
     try {
       report = JSON.parse(raw.replace(/```json|```/g, '').trim());
     } catch {
       throw new Error('Parse error');
     }
-
     estRenderResults(report);
-
   } catch (e) {
     console.error(e);
     estShowError('Something went wrong. Please try again.');
   }
 }
 
-// ── 错误显示辅助函数 ───────────────────────────────────────────
-function estShowError(message) {
+function estRenderResults(r) {
   document.getElementById('est-loading').classList.remove('active');
-  document.getElementById('estep-4').classList.add('active');
-  const err = document.getElementById('est-err');
-  err.textContent = message;
-  err.classList.add('show');
+  document.getElementById('est-res-title').textContent = r.title || '';
+  document.getElementById('est-res-summary').innerHTML = (r.summary||'').split('\n').filter(Boolean).map(l=>`<p>${l}</p>`).join('');
+
+  const plabels = {speed:'Speed Advantage',capital:'Capital Required',cost:'Cost Advantage'};
+  document.getElementById('est-pillars').innerHTML = (r.pillars||[]).map(p=>`
+    <div class="est-pillar ${p.type}">
+      <div class="est-pillar-bar"></div>
+      <div class="est-pillar-lbl">${plabels[p.type]||p.type}</div>
+      <div class="est-pillar-val">${p.value}</div>
+      <div class="est-pillar-sub">${p.sub}</div>
+    </div>`).join('');
+
+  const iconSvg = `<svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z"/></svg>`;
+  document.getElementById('est-recs').innerHTML = (r.recommendations||[]).map(rec=>`
+    <div class="est-rec">
+      <div class="est-rec-icon-wrap">${iconSvg}</div>
+      <div><div class="est-rec-title">${rec.title}</div><div class="est-rec-desc">${rec.description}</div></div>
+    </div>`).join('');
+
+  if (r.constraints && r.constraints.trim()) {
+    document.getElementById('est-constraints-sec').style.display = 'block';
+    document.getElementById('est-constraints').innerHTML = `<p>${r.constraints}</p>`;
+  }
+
+  const cs = r.caseStudy || {};
+  document.getElementById('est-case').innerHTML = `
+    <div class="est-case-tag">${cs.tag||'From YCE Case Library'}</div>
+    <div class="est-case-title">${cs.title||''}</div>
+    <div class="est-case-desc">${cs.description||''}</div>
+    <div class="est-case-metrics">${(cs.metrics||[]).map(m=>`<div><div class="est-cm-val">${m.value}</div><div class="est-cm-label">${m.label}</div></div>`).join('')}</div>
+    ${cs.quote?`<div class="est-case-quote">${cs.quote}</div>`:''}`;
+
+  if (r.ctaTitle) document.getElementById('est-cta-title').textContent = r.ctaTitle;
+  if (r.ctaDesc) document.getElementById('est-cta-desc').textContent = r.ctaDesc;
+
+  document.getElementById('est-results').classList.add('active');
+  document.getElementById('est-results').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 // 确保 handleRouting 支持新页面 (无需修改，原逻辑通过 hash 自动匹配 ID)
