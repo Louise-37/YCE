@@ -106,10 +106,16 @@
     <a href="#case" class="nav-link hover:text-yce-orange transition">Case</a>
     <a href="#why-yce" class="nav-link hover:text-yce-orange transition">Why YCE</a>
     <a href="#how-it-works" class="nav-link hover:text-yce-orange transition">How It Works</a>
+             
     <a href="https://cleanflow.energy/" target="_blank" class="hover:text-yce-orange transition flex items-center">
     CleanFlow <span class="ml-1 font-normal text-lg leading-none">↗</span>
 </a>
             </div>
+
+      <div class="flex items-center gap-4">
+    <a href="#estimator" class="bg-[#1F2933] text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-black transition shadow-lg shadow-gray-200">
+        Project Estimation
+    </a>
             <a href="javascript:void(0)" onclick="toggleModal()" class="bg-yce-orange text-white px-6 py-3 rounded-full font-semibold text-sm hover:bg-orange-600 transition shadow-lg shadow-orange-200">GET ASSESSMENT</a>
         </div>
     </nav>
@@ -150,9 +156,9 @@
                 </div>
 
                 <div class="flex flex-wrap gap-10 items-center">
-                    <a href="#assessment-section" class="group relative px-12 py-5 bg-[#FF8C32] text-white font-bold rounded-full overflow-hidden transition-all shadow-2xl shadow-orange-500/20 hover:scale-105">
+                    <a href="#estimator" class="group relative px-12 py-5 bg-[#FF8C32] text-white font-bold rounded-full overflow-hidden transition-all shadow-2xl shadow-orange-500/20 hover:scale-105">
                        <span class="relative z-10 flex items-center gap-3">
-                           Tell Us What You Need <span class="group-hover:translate-x-2 transition-transform duration-300">→</span>
+                           Get Project Estimation <span class="group-hover:translate-x-2 transition-transform duration-300">→</span>
                        </span>
                     </a>
 
@@ -2270,6 +2276,371 @@
         </div>
     </section>
 </div>
+<div id="page-estimator" class="page-content">
+<div class="estimator-wrap">
+
+  <div class="logo-row">
+    <div class="logo-mark">
+      <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M7 1L12.5 4V10L7 13L1.5 10V4L7 1Z" stroke="#e8621a" stroke-width="1.2" fill="none"/>
+        <path d="M7 4V7.5L9.5 9" stroke="#e8621a" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span class="logo-text">YCE Energy · Project Estimator</span>
+  </div>
+
+  <h1 class="est-h1">What's your energy<br>project <em>actually</em> worth?</h1>
+  <p class="est-tagline">Five questions. A real analysis — tailored to your location, facility, and objectives. No spreadsheets, no engineers required.</p>
+
+  <div class="est-progress-wrap">
+    <div class="est-prog active" id="p0"></div>
+    <div class="est-prog" id="p1"></div>
+    <div class="est-prog" id="p2"></div>
+    <div class="est-prog" id="p3"></div>
+    <div class="est-prog" id="p4"></div>
+    <div class="est-prog" id="p5"></div>
+  </div>
+
+  <!-- STEP 0: Region -->
+  <div class="est-step active" id="estep-0">
+    <div class="est-step-label">01 / 05</div>
+    <h2 class="est-h2">Where is your facility located?</h2>
+    <p class="est-desc">Regulations, grid conditions, and available technologies vary significantly by location.</p>
+    <div class="est-region-wrap" id="est-regions">
+      <button class="est-region-btn" onclick="estSelectRegion(this,'north-america')">North America</button>
+      <button class="est-region-btn" onclick="estSelectRegion(this,'europe')">Europe</button>
+      <button class="est-region-btn" onclick="estSelectRegion(this,'middle-east')">Middle East</button>
+    </div>
+    <div class="est-country-section" id="est-country-section"></div>
+    <div class="est-btn-row"><button class="est-btn-primary" onclick="estNext(1)">Continue</button></div>
+  </div>
+
+  <!-- STEP 1: Facility type -->
+  <div class="est-step" id="estep-1">
+    <div class="est-step-label">02 / 05</div>
+    <h2 class="est-h2">What type of facility?</h2>
+    <p class="est-desc">This determines your primary energy loads and which solutions apply.</p>
+    <div class="est-opt-grid">
+      <div class="est-opt" onclick="estSelectOpt(this,'facility','dc')">
+        <div class="est-opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><rect x="2" y="3" width="20" height="6" rx="1"/><rect x="2" y="11" width="20" height="6" rx="1"/><rect x="2" y="19" width="20" height="2" rx="1"/><circle cx="19" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="19" cy="14" r="1" fill="currentColor" stroke="none"/></svg></div>
+        <div class="est-opt-label">Data Center</div>
+        <div class="est-opt-sub">New build or operating</div>
+      </div>
+      <div class="est-opt" onclick="estSelectOpt(this,'facility','industrial')">
+        <div class="est-opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M2 20V10l5-4v4l5-4v4l5-4v14H2z"/><path d="M9 20v-5h3v5"/><path d="M17 8h3v12h-3"/></svg></div>
+        <div class="est-opt-label">Industrial & Manufacturing</div>
+        <div class="est-opt-sub">Factories, ports, logistics</div>
+      </div>
+      <div class="est-opt" onclick="estSelectOpt(this,'facility','commercial')">
+        <div class="est-opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 3v18M3 15h6"/><rect x="13" y="13" width="5" height="5"/></svg></div>
+        <div class="est-opt-label">Commercial & Hospitality</div>
+        <div class="est-opt-sub">Offices, malls, hotels</div>
+      </div>
+      <div class="est-opt" onclick="estSelectOpt(this,'facility','coldchain')">
+        <div class="est-opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="est-opt-label">Cold Chain & Food</div>
+        <div class="est-opt-sub">Cold storage, processing</div>
+      </div>
+      <div class="est-opt" onclick="estSelectOpt(this,'facility','other')">
+        <div class="est-opt-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+        <div class="est-opt-label">Other</div>
+        <div class="est-opt-sub">Mixed use or other</div>
+      </div>
+    </div>
+    <div class="est-btn-row">
+      <button class="est-btn-secondary" onclick="estNext(0)">Back</button>
+      <button class="est-btn-primary" onclick="estNext(2)">Continue</button>
+    </div>
+  </div>
+
+  <!-- STEP 2: Service direction -->
+  <div class="est-step" id="estep-2">
+    <div class="est-step-label">03 / 05</div>
+    <h2 class="est-h2">What are you trying to solve?</h2>
+    <p class="est-desc">Select up to 2. This shapes which YCE solutions are most relevant.</p>
+    <div class="est-svc-grid">
+      <div class="est-svc" onclick="estToggleSvc(this,'power')">
+        <div class="est-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M13 2L4.5 13.5H11L10 22L20.5 9.5H14L13 2Z"/></svg></div>
+        <div><div class="est-svc-label">Expand power capacity</div><div class="est-svc-sub">Can't get enough grid connection or need more MW</div></div>
+      </div>
+      <div class="est-svc" onclick="estToggleSvc(this,'speed')">
+        <div class="est-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><div class="est-svc-label">Faster access to power</div><div class="est-svc-sub">Grid connection timeline too long for project schedule</div></div>
+      </div>
+      <div class="est-svc" onclick="estToggleSvc(this,'cooling')">
+        <div class="est-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M12 2v20M2 12h20M5 5l14 14M19 5L5 19"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><div class="est-svc-label">Improve cooling efficiency</div><div class="est-svc-sub">Cooling is a major cost or reliability issue</div></div>
+      </div>
+      <div class="est-svc" onclick="estToggleSvc(this,'cost')">
+        <div class="est-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M12 2v2m0 16v2M6 12H4m16 0h-2"/><circle cx="12" cy="12" r="5"/><path d="M12 9v3l2 2"/></svg></div>
+        <div><div class="est-svc-label">Reduce energy operating costs</div><div class="est-svc-sub">Bills are rising and need to come down</div></div>
+      </div>
+      <div class="est-svc" onclick="estToggleSvc(this,'reliability')">
+        <div class="est-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M12 2L3 7v5c0 5 4.5 9.3 9 10.5C16.5 21.3 21 17 21 12V7L12 2z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div><div class="est-svc-label">Energy reliability & independence</div><div class="est-svc-sub">Grid instability or outage risk is unacceptable</div></div>
+      </div>
+      <div class="est-svc" onclick="estToggleSvc(this,'esg')">
+        <div class="est-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M12 3c-1.5 4-3 6-3 9a3 3 0 006 0c0-3-1.5-5-3-9z"/><path d="M6 14c-1 3 0 5 2 6M18 14c1 3 0 5-2 6"/></svg></div>
+        <div><div class="est-svc-label">Decarbonization & ESG targets</div><div class="est-svc-sub">Net zero commitments or regulatory compliance</div></div>
+      </div>
+      <div class="est-svc" onclick="estToggleSvc(this,'aging')">
+        <div class="est-svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"><path d="M14.5 3.5L20 9l-11 11H3v-6L14.5 3.5z"/><path d="M17 6l1 1"/></svg></div>
+        <div><div class="est-svc-label">Replace aging infrastructure</div><div class="est-svc-sub">Equipment past useful life, needs upgrading</div></div>
+      </div>
+    </div>
+    <div class="est-btn-row">
+      <button class="est-btn-secondary" onclick="estNext(1)">Back</button>
+      <button class="est-btn-primary" onclick="estNext(3)">Continue</button>
+    </div>
+  </div>
+
+  <!-- STEP 3: Spend -->
+  <div class="est-step" id="estep-3">
+    <div class="est-step-label">04 / 05</div>
+    <h2 class="est-h2">Monthly energy expenditure?</h2>
+    <p class="est-desc">An approximate figure is sufficient. This helps assess project scale and economic viability.</p>
+    <div class="est-spend-grid">
+      <div class="est-spend-opt" onclick="estSelectOpt(this,'spend','xs')"><div class="est-spend-amount">Under $10K</div><div class="est-spend-label">per month</div></div>
+      <div class="est-spend-opt" onclick="estSelectOpt(this,'spend','sm')"><div class="est-spend-amount">$10K – $50K</div><div class="est-spend-label">per month</div></div>
+      <div class="est-spend-opt" onclick="estSelectOpt(this,'spend','md')"><div class="est-spend-amount">$50K – $200K</div><div class="est-spend-label">per month</div></div>
+      <div class="est-spend-opt" onclick="estSelectOpt(this,'spend','lg')"><div class="est-spend-amount">$200K – $1M</div><div class="est-spend-label">per month</div></div>
+      <div class="est-spend-opt" onclick="estSelectOpt(this,'spend','xl')"><div class="est-spend-amount">Over $1M</div><div class="est-spend-label">per month</div></div>
+    </div>
+    <div class="est-btn-row">
+      <button class="est-btn-secondary" onclick="estNext(2)">Back</button>
+      <button class="est-btn-primary" onclick="estNext(4)">Continue</button>
+    </div>
+  </div>
+
+  <!-- STEP 4: Contact -->
+  <div class="est-step" id="estep-4">
+    <div class="est-step-label">05 / 05</div>
+    <h2 class="est-h2">Unlock your analysis</h2>
+    <p class="est-desc">Your project profile is ready for analysis. Enter your details to receive the full report.</p>
+    <div class="est-form-row">
+      <div class="est-field"><label>First Name</label><input type="text" id="est-fname" placeholder="Alex"></div>
+      <div class="est-field"><label>Last Name</label><input type="text" id="est-lname" placeholder="Chen"></div>
+    </div>
+    <div class="est-form-row">
+      <div class="est-field"><label>Work Email</label><input type="email" id="est-email" placeholder="alex@company.com"></div>
+      <div class="est-field"><label>Company</label><input type="text" id="est-company" placeholder="Your Company"></div>
+    </div>
+    <div class="est-err" id="est-err">Please complete all fields to continue.</div>
+    <div class="est-btn-row">
+      <button class="est-btn-secondary" onclick="estNext(3)">Back</button>
+      <button class="est-btn-primary" onclick="estSubmit()">Analyze My Project →</button>
+    </div>
+  </div>
+
+  <!-- Loading -->
+  <div class="est-loading" id="est-loading">
+    <div class="est-loading-ring"></div>
+    <div class="est-loading-title">Analyzing your project</div>
+    <div class="est-loading-sub">This takes 10–20 seconds</div>
+    <div class="est-loading-steps">
+      <div class="est-ls active" id="els0"><span class="est-ls-dot"></span>Reviewing regional regulations</div>
+      <div class="est-ls" id="els1"><span class="est-ls-dot"></span>Mapping your energy load profile</div>
+      <div class="est-ls" id="els2"><span class="est-ls-dot"></span>Filtering viable solutions</div>
+      <div class="est-ls" id="els3"><span class="est-ls-dot"></span>Matching comparable projects</div>
+      <div class="est-ls" id="els4"><span class="est-ls-dot"></span>Preparing your report</div>
+    </div>
+  </div>
+
+  <!-- Results -->
+  <div class="est-results" id="est-results">
+    <div class="est-res-header">
+      <div class="est-res-eyebrow"><span></span>Project Analysis Report</div>
+      <div class="est-res-title" id="est-res-title"></div>
+      <div class="est-res-summary" id="est-res-summary"></div>
+    </div>
+    <div class="est-zero-banner">
+      <div class="est-zero-left">
+        <div class="est-zero-label">Capital Required from You</div>
+        <div class="est-zero-val">$0</div>
+      </div>
+      <div class="est-zero-right">YCE Energy finances, installs, and operates all infrastructure. You pay only for the energy you consume — nothing upfront, no assets on your balance sheet.</div>
+    </div>
+    <div class="est-pillars" id="est-pillars"></div>
+    <div class="est-section">
+      <h3>Recommended Approach</h3>
+      <div id="est-recs"></div>
+    </div>
+    <div class="est-section" id="est-constraints-sec" style="display:none">
+      <h3>Key Constraints for Your Region</h3>
+      <div class="est-body-text" id="est-constraints"></div>
+    </div>
+    <div class="est-case-card" id="est-case"></div>
+    <div class="est-disclaimer">
+      <p>All figures are directional estimates based on comparable projects and industry benchmarks. Actual outcomes depend on a detailed site assessment. YCE Energy provides binding proposals only after on-site review.</p>
+    </div>
+    <div class="est-cta-box">
+      <div class="est-cta-text">
+        <h3 id="est-cta-title">Request a Detailed Proposal</h3>
+        <p id="est-cta-desc">Our team will validate these findings with a complimentary 30-minute assessment — no commitment required.</p>
+      </div>
+      <button class="est-btn-cta" onclick="toggleModal()">Book Assessment →</button>
+    </div>
+  </div>
+
+</div><!-- end estimator-wrap -->
+</div><!-- end page-estimator -->
+
+<style>
+/* ── YCE Estimator v3 styles ─────────────────────────────────── */
+#page-estimator {
+  background: #ffffff;
+  min-height: 100vh;
+  position: relative;
+}
+.estimator-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 200px 28px 100px;
+  position: relative;
+  z-index: 1;
+  font-family: 'DM Sans', 'Inter', sans-serif;
+  font-weight: 300;
+  color: #1F2937;
+}
+.logo-row { display: flex; align-items: center; gap: 10px; margin-bottom: 44px; }
+.logo-mark { width: 30px; height: 30px; border: 1px solid #FF8C32; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.logo-mark svg { width: 14px; height: 14px; }
+.logo-text { font-size: 11px; letter-spacing: .18em; color: #6B7280; text-transform: uppercase; font-weight: 500; }
+.est-h1 { font-size: clamp(30px, 4.5vw, 48px); font-weight: 700; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 14px; color: #1F2937; }
+.est-h1 em { font-style: normal; color: #FF8C32; }
+.est-tagline { color: #6B7280; font-size: 15px; line-height: 1.7; max-width: 460px; }
+.est-progress-wrap { display: flex; gap: 4px; margin: 44px 0 40px; }
+.est-prog { height: 2px; flex: 1; background: #E5E7EB; border-radius: 1px; transition: all .35s; }
+.est-prog.done { background: #9CA3AF; }
+.est-prog.active { background: #FF8C32; }
+.est-step { display: none; animation: estFadeUp .3s ease; }
+.est-step.active { display: block; }
+@keyframes estFadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
+.est-step-label { font-size: 10px; letter-spacing: .2em; color: #FF8C32; text-transform: uppercase; margin-bottom: 10px; font-weight: 500; }
+.est-h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; letter-spacing: -.01em; color: #1F2937; }
+.est-desc { color: #6B7280; font-size: 14px; margin-bottom: 26px; line-height: 1.65; }
+.est-region-wrap { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.est-region-btn { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 7px; padding: 9px 18px; cursor: pointer; font-size: 13px; color: #6B7280; transition: all .18s; }
+.est-region-btn:hover { border-color: #D1D5DB; color: #1F2937; }
+.est-region-btn.selected { border-color: #FF8C32; color: #FF8C32; background: rgba(255,140,50,.08); }
+.est-country-section { margin-bottom: 6px; }
+.est-country-group-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #9CA3AF; margin: 14px 0 8px; display: flex; align-items: center; gap: 8px; font-weight: 500; }
+.est-country-group-label::after { content: ''; flex: 1; height: 1px; background: #E5E7EB; }
+.est-country-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.est-country-btn { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 6px; padding: 7px 13px; cursor: pointer; font-size: 12.5px; color: #6B7280; transition: all .15s; }
+.est-country-btn:hover { border-color: #D1D5DB; color: #1F2937; }
+.est-country-btn.selected { border-color: #FF8C32; color: #FF8C32; background: rgba(255,140,50,.08); }
+.est-opt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 8px; margin-bottom: 6px; }
+.est-opt { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 18px 14px 16px; cursor: pointer; transition: all .18s; user-select: none; position: relative; display: flex; flex-direction: column; gap: 10px; }
+.est-opt:hover { border-color: #D1D5DB; background: #F3F4F6; }
+.est-opt.selected { border-color: #FF8C32; background: rgba(255,140,50,.07); }
+.est-opt.selected::after { content: '✓'; position: absolute; top: 10px; right: 11px; font-size: 10px; color: #FF8C32; font-weight: 500; }
+.est-opt-icon { width: 28px; height: 28px; }
+.est-opt-icon svg { width: 100%; height: 100%; color: #9CA3AF; transition: color .18s; }
+.est-opt.selected .est-opt-icon svg { color: #FF8C32; }
+.est-opt:hover .est-opt-icon svg { color: #1F2937; }
+.est-opt-label { font-size: 13px; font-weight: 500; color: #1F2937; line-height: 1.3; }
+.est-opt-sub { font-size: 11px; color: #9CA3AF; line-height: 1.4; }
+.est-svc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px; margin-bottom: 6px; }
+.est-svc { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 18px 16px; cursor: pointer; transition: all .18s; user-select: none; position: relative; display: flex; align-items: flex-start; gap: 13px; }
+.est-svc:hover { border-color: #D1D5DB; background: #F3F4F6; }
+.est-svc.selected { border-color: #FF8C32; background: rgba(255,140,50,.07); }
+.est-svc.selected::after { content: '✓'; position: absolute; top: 10px; right: 12px; font-size: 10px; color: #FF8C32; font-weight: 500; }
+.est-svc-icon { width: 22px; height: 22px; flex-shrink: 0; margin-top: 1px; }
+.est-svc-icon svg { width: 100%; height: 100%; color: #9CA3AF; transition: color .18s; }
+.est-svc.selected .est-svc-icon svg { color: #FF8C32; }
+.est-svc:hover .est-svc-icon svg { color: #1F2937; }
+.est-svc-label { font-size: 13px; font-weight: 500; color: #1F2937; line-height: 1.3; margin-bottom: 3px; }
+.est-svc-sub { font-size: 11.5px; color: #9CA3AF; line-height: 1.45; }
+.est-spend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 6px; }
+.est-spend-opt { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 18px 20px; cursor: pointer; transition: all .18s; user-select: none; position: relative; }
+.est-spend-opt:hover { border-color: #D1D5DB; }
+.est-spend-opt.selected { border-color: #FF8C32; background: rgba(255,140,50,.07); }
+.est-spend-opt.selected::after { content: '✓'; position: absolute; top: 12px; right: 14px; font-size: 10px; color: #FF8C32; font-weight: 500; }
+.est-spend-amount { font-size: 14px; font-weight: 500; color: #1F2937; margin-bottom: 3px; font-family: 'DM Mono', monospace; }
+.est-spend-label { font-size: 11.5px; color: #9CA3AF; }
+.est-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.est-field label { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: #6B7280; margin-bottom: 7px; font-weight: 500; }
+.est-field input { width: 100%; background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 7px; padding: 12px 14px; color: #1F2937; font-family: 'Inter', sans-serif; font-size: 14px; transition: border-color .2s; }
+.est-field input:focus { outline: none; border-color: #FF8C32; }
+.est-field input::placeholder { color: #9CA3AF; }
+.est-btn-row { display: flex; gap: 10px; justify-content: flex-end; margin-top: 26px; }
+.est-btn-primary { background: #FF8C32; color: #fff; border: none; border-radius: 7px; padding: 12px 26px; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all .2s; letter-spacing: .01em; }
+.est-btn-primary:hover { background: #e87820; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(255,140,50,.25); }
+.est-btn-secondary { background: transparent; color: #6B7280; border: 1px solid #E5E7EB; border-radius: 7px; padding: 12px 22px; font-size: 13.5px; cursor: pointer; transition: all .2s; }
+.est-btn-secondary:hover { border-color: #D1D5DB; color: #1F2937; }
+.est-err { background: rgba(200,60,60,.08); border: 1px solid rgba(200,60,60,.2); border-radius: 7px; padding: 12px 16px; color: rgba(180,50,50,.9); font-size: 13px; margin-bottom: 14px; display: none; }
+.est-err.show { display: block; }
+.est-loading { display: none; text-align: center; padding: 80px 20px; }
+.est-loading.active { display: block; }
+.est-loading-ring { width: 44px; height: 44px; border: 2px solid #E5E7EB; border-top-color: #FF8C32; border-radius: 50%; animation: estSpin 1s linear infinite; margin: 0 auto 24px; }
+@keyframes estSpin { to { transform: rotate(360deg); } }
+.est-loading-title { font-size: 20px; font-weight: 700; margin-bottom: 6px; color: #1F2937; }
+.est-loading-sub { color: #6B7280; font-size: 13px; margin-bottom: 28px; }
+.est-loading-steps { max-width: 280px; margin: 0 auto; }
+.est-ls { font-size: 12.5px; color: #9CA3AF; display: flex; align-items: center; gap: 9px; padding: 5px 0; transition: color .3s; }
+.est-ls.active { color: #FF8C32; }
+.est-ls.done { color: #6B7280; }
+.est-ls-dot { width: 4px; height: 4px; border-radius: 50%; background: currentColor; flex-shrink: 0; }
+.est-results { display: none; }
+.est-results.active { display: block; animation: estFadeUp .45s ease; }
+.est-res-header { margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid #E5E7EB; }
+.est-res-eyebrow { font-size: 10px; letter-spacing: .18em; color: #FF8C32; text-transform: uppercase; margin-bottom: 12px; display: flex; align-items: center; gap: 7px; font-weight: 500; }
+.est-res-eyebrow span { display: inline-block; width: 4px; height: 4px; background: #FF8C32; border-radius: 50%; }
+.est-res-title { font-size: clamp(19px, 2.8vw, 26px); font-weight: 700; letter-spacing: -.01em; line-height: 1.25; margin-bottom: 12px; color: #1F2937; }
+.est-res-summary { color: #6B7280; font-size: 14.5px; line-height: 1.75; }
+.est-res-summary p { margin-bottom: 8px; }
+.est-zero-banner { background: rgba(255,140,50,.08); border: 1px solid rgba(255,140,50,.35); border-radius: 10px; padding: 22px 24px; margin-bottom: 16px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap; }
+.est-zero-left { flex-shrink: 0; text-align: center; padding-right: 24px; border-right: 1px solid rgba(255,140,50,.25); }
+.est-zero-label { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,140,50,.8); font-weight: 500; margin-bottom: 4px; }
+.est-zero-val { font-size: 38px; font-weight: 500; color: #FF8C32; line-height: 1; font-family: 'DM Mono', monospace; }
+.est-zero-right { font-size: 13.5px; color: #6B7280; line-height: 1.65; flex: 1; }
+.est-pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 20px; }
+.est-pillar { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 20px 16px; position: relative; overflow: hidden; }
+.est-pillar-bar { position: absolute; top: 0; left: 0; right: 0; height: 2px; }
+.est-pillar.speed .est-pillar-bar { background: #FF8C32; }
+.est-pillar.capital .est-pillar-bar { background: #FF8C32; }
+.est-pillar.capital { border-color: rgba(255,140,50,.3); background: rgba(255,140,50,.06); }
+.est-pillar.cost .est-pillar-bar { background: #FF8C32; }
+.est-pillar-lbl { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: #9CA3AF; margin: 0 0 8px; font-weight: 500; }
+.est-pillar-val { font-size: 20px; font-weight: 500; line-height: 1; margin-bottom: 5px; font-family: 'DM Mono', monospace; }
+.est-pillar.speed .est-pillar-val { color: #FF8C32; }
+.est-pillar.capital .est-pillar-val { color: #FF8C32; font-size: 24px; }
+.est-pillar.cost .est-pillar-val { color: #FF8C32; }
+.est-pillar-sub { font-size: 11.5px; color: #6B7280; line-height: 1.5; }
+.est-section { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 26px; margin-bottom: 12px; }
+.est-section h3 { font-size: 15px; font-weight: 700; margin-bottom: 14px; letter-spacing: -.01em; color: #1F2937; }
+.est-body-text { color: #6B7280; font-size: 14px; line-height: 1.75; }
+.est-rec { background: #F3F4F6; border: 1px solid #E5E7EB; border-radius: 8px; padding: 16px; margin-bottom: 8px; display: flex; gap: 12px; }
+.est-rec-icon-wrap { width: 32px; height: 32px; flex-shrink: 0; border: 1px solid #D1D5DB; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-top: 1px; }
+.est-rec-icon-wrap svg { width: 16px; height: 16px; stroke: #FF8C32; fill: none; }
+.est-rec-title { font-size: 13.5px; font-weight: 500; color: #1F2937; margin-bottom: 4px; }
+.est-rec-desc { font-size: 13px; color: #6B7280; line-height: 1.65; }
+.est-case-card { background: #F9FAFB; border: 1px solid #E5E7EB; border-radius: 10px; padding: 26px; margin-bottom: 12px; position: relative; overflow: hidden; }
+.est-case-card::before { content: ''; position: absolute; top: 0; left: 0; bottom: 0; width: 2px; background: #FF8C32; }
+.est-case-tag { font-size: 10px; letter-spacing: .15em; color: #FF8C32; text-transform: uppercase; margin-bottom: 12px; font-weight: 500; }
+.est-case-title { font-size: 17px; font-weight: 700; margin-bottom: 8px; letter-spacing: -.01em; color: #1F2937; }
+.est-case-desc { color: #6B7280; font-size: 13.5px; line-height: 1.7; margin-bottom: 18px; }
+.est-case-metrics { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid #E5E7EB; }
+.est-cm-val { font-size: 17px; font-weight: 500; color: #FF8C32; margin-bottom: 3px; font-family: 'DM Mono', monospace; }
+.est-cm-label { font-size: 11px; color: #9CA3AF; }
+.est-case-quote { font-size: 13px; color: #6B7280; line-height: 1.7; font-style: italic; }
+.est-case-quote::before { content: '"'; color: #FF8C32; font-size: 20px; line-height: 0; vertical-align: -4px; margin-right: 4px; }
+.est-disclaimer { border: 1px solid #E5E7EB; border-left: 2px solid #9CA3AF; border-radius: 0 7px 7px 0; padding: 13px 16px; margin-bottom: 16px; }
+.est-disclaimer p { font-size: 12px; color: #9CA3AF; line-height: 1.65; }
+.est-cta-box { background: #F9FAFB; border: 1px solid #D1D5DB; border-radius: 10px; padding: 28px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+.est-cta-text h3 { font-size: 18px; font-weight: 700; margin-bottom: 5px; letter-spacing: -.01em; color: #1F2937; }
+.est-cta-text p { font-size: 13.5px; color: #6B7280; line-height: 1.6; max-width: 360px; }
+.est-btn-cta { background: #FF8C32; color: #fff; border: none; border-radius: 7px; padding: 13px 26px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .2s; white-space: nowrap; flex-shrink: 0; }
+.est-btn-cta:hover { background: #e87820; transform: translateY(-1px); box-shadow: 0 8px 28px rgba(255,140,50,.22); }
+@media (max-width: 580px) {
+  .estimator-wrap { padding: 100px 16px 80px; }
+  .est-pillars, .est-spend-grid, .est-form-row { grid-template-columns: 1fr; }
+  .est-cta-box, .est-zero-banner { flex-direction: column; }
+  .est-svc-grid { grid-template-columns: 1fr; }
+  .est-zero-left { border-right: none; border-bottom: 1px solid rgba(255,140,50,.25); padding-right: 0; padding-bottom: 16px; }
+}
+</style>
 
 
     <footer class="bg-white py-12 border-t border-gray-100">
@@ -2453,6 +2824,297 @@ function toggleModal() {
 document.getElementById('form-modal').addEventListener('click', function(e) {
     if (e.target === this) toggleModal();
 });
+// ── YCE Estimator v3 ─────────────────────────────────────────────────────────
+const estState = { region:null, country:null, facility:null, svcs:[], spend:null, step:0 };
+
+const estRegions = {
+  'north-america': { groups:[
+    { label:'United States', items:[
+      {id:'california',l:'California'},{id:'texas',l:'Texas'},{id:'virginia',l:'Virginia'},
+      {id:'arizona',l:'Arizona'},{id:'nevada',l:'Nevada'},{id:'florida',l:'Florida'},
+      {id:'georgia',l:'Georgia'},{id:'ohio',l:'Ohio'},{id:'illinois',l:'Illinois'},
+      {id:'washington',l:'Washington State'},{id:'oregon',l:'Oregon'},{id:'new-york',l:'New York'},
+      {id:'us-other',l:'Other US State'}
+    ]},
+    { label:'Canada', items:[
+      {id:'bc',l:'British Columbia'},{id:'ontario',l:'Ontario'},{id:'alberta',l:'Alberta'},
+      {id:'quebec',l:'Quebec'},{id:'canada-other',l:'Other Province'}
+    ]}
+  ]},
+  'europe': { groups:[
+    { label:'European Countries', items:[
+      {id:'germany',l:'Germany'},{id:'netherlands',l:'Netherlands'},{id:'poland',l:'Poland'},
+      {id:'uk',l:'United Kingdom'},{id:'france',l:'France'},{id:'spain',l:'Spain'},
+      {id:'italy',l:'Italy'},{id:'czech',l:'Czech Republic'},{id:'romania',l:'Romania'},
+      {id:'denmark',l:'Denmark'},{id:'sweden',l:'Sweden'},{id:'norway',l:'Norway'},
+      {id:'belgium',l:'Belgium'},{id:'ireland',l:'Ireland'},{id:'eu-other',l:'Other European Country'}
+    ]}
+  ]},
+  'middle-east': { groups:[
+    { label:'Middle East Countries', items:[
+      {id:'uae',l:'UAE'},{id:'saudi',l:'Saudi Arabia'},{id:'qatar',l:'Qatar'},
+      {id:'kuwait',l:'Kuwait'},{id:'oman',l:'Oman'},{id:'bahrain',l:'Bahrain'},
+      {id:'me-other',l:'Other Middle East'}
+    ]}
+  ]}
+};
+
+const estCountryNames = {
+  california:'California, USA',texas:'Texas, USA',virginia:'Virginia, USA',arizona:'Arizona, USA',
+  nevada:'Nevada, USA',florida:'Florida, USA',georgia:'Georgia, USA',ohio:'Ohio, USA',
+  illinois:'Illinois, USA',washington:'Washington State, USA',oregon:'Oregon, USA',
+  'new-york':'New York, USA','us-other':'United States (other state)',
+  bc:'British Columbia, Canada',ontario:'Ontario, Canada',alberta:'Alberta, Canada',
+  quebec:'Quebec, Canada','canada-other':'Canada (other province)',
+  germany:'Germany',netherlands:'Netherlands',poland:'Poland',uk:'United Kingdom',
+  france:'France',spain:'Spain',italy:'Italy',czech:'Czech Republic',romania:'Romania',
+  denmark:'Denmark',sweden:'Sweden',norway:'Norway',belgium:'Belgium',ireland:'Ireland',
+  'eu-other':'Europe (other country)',uae:'UAE',saudi:'Saudi Arabia',qatar:'Qatar',
+  kuwait:'Kuwait',oman:'Oman',bahrain:'Bahrain','me-other':'Middle East (other)'
+};
+
+function estSelectRegion(btn, r) {
+  document.querySelectorAll('.est-region-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  estState.region = r; estState.country = null;
+  const sec = document.getElementById('est-country-section');
+  sec.innerHTML = '';
+  estRegions[r].groups.forEach(g => {
+    const hl = document.createElement('div');
+    hl.className = 'est-country-group-label';
+    hl.textContent = g.label;
+    sec.appendChild(hl);
+    const pills = document.createElement('div');
+    pills.className = 'est-country-pills';
+    g.items.forEach(c => {
+      const b = document.createElement('button');
+      b.className = 'est-country-btn'; b.textContent = c.l;
+      b.onclick = () => {
+        document.querySelectorAll('.est-country-btn').forEach(x=>x.classList.remove('selected'));
+        b.classList.add('selected'); estState.country = c.id;
+      };
+      pills.appendChild(b);
+    });
+    sec.appendChild(pills);
+  });
+}
+
+function estSelectOpt(el, key, val) {
+  el.closest('.est-opt-grid,.est-spend-grid').querySelectorAll('.est-opt,.est-spend-opt').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected'); estState[key] = val;
+}
+
+function estToggleSvc(el, svc) {
+  if (el.classList.contains('selected')) {
+    el.classList.remove('selected');
+    estState.svcs = estState.svcs.filter(s=>s!==svc);
+  } else {
+    if (estState.svcs.length >= 2) return;
+    el.classList.add('selected'); estState.svcs.push(svc);
+  }
+}
+
+function estNext(n) {
+  if (n===1 && !estState.country) { alert('Please select your location.'); return; }
+  if (n===2 && !estState.facility) { alert('Please select a facility type.'); return; }
+  if (n===4 && !estState.spend) { alert('Please select your monthly energy spend.'); return; }
+  document.getElementById('estep-'+estState.step).classList.remove('active');
+  const cp = document.getElementById('p'+estState.step);
+  cp.classList.remove('active'); cp.classList.add('done');
+  estState.step = n;
+  document.getElementById('estep-'+n).classList.add('active');
+  const np = document.getElementById('p'+n);
+  np.classList.remove('done'); np.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function estSubmit() {
+  const f = document.getElementById('est-fname').value.trim();
+  const e = document.getElementById('est-email').value.trim();
+  const c = document.getElementById('est-company').value.trim();
+  const err = document.getElementById('est-err');
+  if (!f||!e||!c) { err.classList.add('show'); return; }
+  err.classList.remove('show');
+  estState.name = f; estState.email = e; estState.company = c;
+  document.getElementById('estep-4').classList.remove('active');
+  document.querySelectorAll('.est-prog').forEach(p=>{p.classList.remove('active');p.classList.add('done');});
+  document.getElementById('est-loading').classList.add('active');
+  estAnimateLoading(); estCallAI();
+}
+
+function estAnimateLoading() {
+  const ids = ['els0','els1','els2','els3','els4'];
+  let i = 0;
+  const t = setInterval(() => {
+    if (i>0) { const p=document.getElementById(ids[i-1]); p.classList.remove('active'); p.classList.add('done'); }
+    if (i<ids.length) { document.getElementById(ids[i]).classList.add('active'); i++; }
+    else clearInterval(t);
+  }, 2400);
+}
+
+const EST_FALLBACK_CASES = `CASE 1
+Title: 55 Water Street — Full Cooling & Heat Recovery System Upgrade
+Location: Manhattan, New York, USA · North America
+Facility: Commercial High-Rise Office (53 floors, 3.8M sqft)
+Services: Cooling, Thermal Energy, Efficiency
+Key Results: -20% building energy intensity, -72% steam consumption, $1.5M annual OpEx savings, $1.2M compliance penalties avoided (NYC Local Law 97)
+
+CASE 2
+Title: Katjes Food Factory Cooling System Upgrade
+Location: Emmerich am Rhein, Germany · Europe
+Facility: Food Manufacturing Plant
+Services: Cooling, Efficiency
+Key Results: Cooling efficiency rating 6→9, zero production downtime, maintenance costs significantly reduced
+
+CASE 3
+Title: Stanford Energy System Innovations (SESI)
+Location: Stanford, California, USA · North America
+Facility: University Campus (155 buildings)
+Services: Cooling, Thermal Energy, Efficiency
+Key Results: -17% peak energy demand, -68–81% GHG emissions, $520M projected 35-year recovery
+
+CASE 4
+Title: York University Central Utility Building Cooling Upgrade
+Location: Toronto, Ontario, Canada
+Facility: University Campus Central Plant
+Services: Cooling, Efficiency
+Key Results: Cooling capacity 2,460–9,850 kW, electricity dependence reduced, existing steam converted to cooling
+
+CASE 5
+Title: 60MW Biomass Power Plant
+Location: North America
+Facility: Biomass Power Generation
+Services: Power, BOT model
+Key Results: 60MW capacity, $0 client capital, multi-fuel flexibility
+
+CASE 6
+Title: Panevo Combined Cycle Power Plant
+Location: Serbia · Europe
+Facility: Gas-Fired Combined Cycle Power Plant
+Services: Power, Full EPC
+Key Results: Europe's first small F-class gas turbine EPC, full turnkey delivery
+
+CASE 7
+Title: Dubai 950MW CSP + PV Hybrid Power Plant
+Location: Dubai, UAE · Middle East
+Facility: Utility-Scale Solar Power Plant
+Services: Power, Full EPC
+Key Results: 950MW total (700MW CSP + 250MW PV), world's largest single-site CSP`;
+
+const EST_SYSTEM = `You are an expert energy advisor for YCE Energy — a company that delivers energy infrastructure as a managed service. Clients pay zero upfront capital and receive guaranteed energy outcomes under long-term contracts (10–15 years). YCE finances, builds, owns, and operates all infrastructure.
+
+YCE's three core advantages: (1) SPEED: deploys in months vs years for grid; (2) ZERO CAPITAL: $0 upfront; (3) COST/RELIABILITY: lower cost in high-price regions, better reliability everywhere.
+
+HARD RULES:
+- California: NO natural gas as primary power source (CARB). Solar+storage or fuel cells only. NEM 3.0 = solar MUST pair with storage.
+- UAE: NO third-party power sales. Self-consumption solar ≤5MW only.
+- Saudi Arabia: Off-grid most flexible (<2MW no license). Grid-connected capped at 2MW.
+- Monthly spend <$10K: NO microgrids. HVAC or VFD only.
+- Data center: Pure solar without storage insufficient for 24/7 load.
+- ESG + California: Do NOT suggest natural gas.
+
+SERVICES: HVAC Retrofit (20–35% reduction, 6–10 weeks), VFD Upgrade (25–40%, 4–8 weeks), Solar+Storage BTM (15–30% cost reduction, 4–6 months vs 9–18 traditional), DC Cooling-as-a-Service (30–45%, 3–4 months vs 6–18 traditional), Edge Microgrid (12–18 months vs 3–6 YEARS grid), Cold Chain Retrofit (20–35%, 3–5 months).
+
+CASE MATCHING: A CASE LIBRARY is provided. Select the single most relevant case (region > facility type > service > scale). Use REAL metrics from that case. Do not invent numbers.
+
+LANGUAGE: Estimates: always "~" or "typically". $0: state with full confidence. No specific electricity prices or exact grid wait times. Tone: expert advisor, 45–60 year old executive audience.
+
+OUTPUT — ONLY valid JSON:
+{"title":"specific title using company name","summary":"3–4 sentences specific to their context. End with what YCE can deliver.","pillars":[{"type":"speed|capital|cost","value":"~X% faster or $0","sub":"one line"},{"type":"capital","value":"$0","sub":"upfront capital required from client"},{"type":"speed|cost","value":"~X%","sub":"one line"}],"recommendations":[{"title":"Service Name","description":"2–3 sentences specific to their situation, location, objectives."}],"constraints":"Regional constraints in 2 sentences. Empty string if none.","caseStudy":{"tag":"From YCE Case Library","title":"exact case title","description":"2–3 sentence accurate summary using real data.","metrics":[{"value":"real metric","label":"what it measures"},{"value":"real metric","label":"what it measures"},{"value":"$0","label":"Client capital invested"}],"quote":"1–2 sentence professional quote."},"ctaTitle":"CTA headline specific to their objective","ctaDesc":"One sentence"}`;
+
+const estSvcNames = {power:'expand power capacity',speed:'faster access to power',cooling:'improve cooling efficiency',cost:'reduce energy operating costs',reliability:'energy reliability & independence',esg:'decarbonization & ESG targets',aging:'replace aging infrastructure'};
+const estFacilityNames = {dc:'Data Center',industrial:'Industrial & Manufacturing',commercial:'Commercial & Hospitality',coldchain:'Cold Chain & Food Processing',other:'Mixed/Other'};
+const estSpendNames = {xs:'under $10,000/month',sm:'$10,000–$50,000/month',md:'$50,000–$200,000/month',lg:'$200,000–$1M/month',xl:'over $1M/month'};
+
+async function estFetchLiveCases() {
+  try {
+    const res = await fetch('https://yce.energy/', { signal: AbortSignal.timeout(7000) });
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    const html = await res.text();
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const body = doc.body.innerText || doc.body.textContent || '';
+    const start = body.indexOf('Real projects');
+    const end = body.lastIndexOf('About YCE Energy');
+    if (start > -1 && end > start) {
+      const extracted = body.substring(start, end).trim();
+      if (extracted.length > 300) return extracted;
+    }
+    return null;
+  } catch(e) { return null; }
+}
+
+async function estCallAI() {
+  // ── 你的 Cloudflare Worker 地址，替换 YOUR-SUBDOMAIN ──────────
+  const PROXY_URL = 'https://yce-estimator-proxy.louisewang037.workers.dev';
+
+  // ── 尝试获取最新案例库 ────────────────────────────────────────
+  const liveCases = await estFetchLiveCases();
+  const caseLibrary = liveCases || EST_FALLBACK_CASES;
+  const systemPrompt = EST_SYSTEM + `\n\nCASE LIBRARY (${new Date().toISOString().split('T')[0]}):\n${caseLibrary}`;
+
+  // ── 构建用户消息 ──────────────────────────────────────────────
+  const objectives = estState.svcs.length
+    ? estState.svcs.map(s => estSvcNames[s]).join('; ')
+    : 'not specified';
+
+  const msg = `Company: ${estState.company}
+Contact: ${estState.name}
+Location: ${estCountryNames[estState.country] || estState.country}
+Facility Type: ${estFacilityNames[estState.facility]}
+Primary Objectives: ${objectives}
+Monthly Energy Spend: ${estSpendNames[estState.spend]}`;
+
+  try {
+    const res = await fetch(PROXY_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        system:   systemPrompt,
+        messages: [{ role: 'user', content: msg }],
+      }),
+    });
+
+    // ── 限流处理 ────────────────────────────────────────────────
+    if (res.status === 429) {
+      const errData = await res.json().catch(() => ({}));
+      estShowError(errData.message || 'Daily analysis limit reached. Please try again tomorrow or contact support@yce.energy.');
+      return;
+    }
+
+    // ── 其他错误 ────────────────────────────────────────────────
+    if (!res.ok) {
+      estShowError('Analysis failed. Please try again in a moment.');
+      return;
+    }
+
+    const data = await res.json();
+    const raw  = data.content?.[0]?.text || '';
+
+    let report;
+    try {
+      report = JSON.parse(raw.replace(/```json|```/g, '').trim());
+    } catch {
+      throw new Error('Parse error');
+    }
+
+    estRenderResults(report);
+
+  } catch (e) {
+    console.error(e);
+    estShowError('Something went wrong. Please try again.');
+  }
+}
+
+// ── 错误显示辅助函数 ───────────────────────────────────────────
+function estShowError(message) {
+  document.getElementById('est-loading').classList.remove('active');
+  document.getElementById('estep-4').classList.add('active');
+  const err = document.getElementById('est-err');
+  err.textContent = message;
+  err.classList.add('show');
+}
+
+// 确保 handleRouting 支持新页面 (无需修改，原逻辑通过 hash 自动匹配 ID)
 </script>
 </body>
 </html>
