@@ -3134,6 +3134,9 @@ function estRenderResults(r) {
 
   document.getElementById('est-results').classList.add('active');
   document.getElementById('est-results').scrollIntoView({behavior:'smooth',block:'start'});
+
+  // 自动发送分析结果到邮箱
+  estSendResultByEmail(r);
 }
 
 // 确保 handleRouting 支持新页面 (无需修改，原逻辑通过 hash 自动匹配 ID)
@@ -3205,6 +3208,47 @@ setTimeout(() => {
 // 初始化两个表单
 handleFormSubmit('main-assessment-form', 'Submit Assessment Request →');
 handleFormSubmit('modal-assessment-form', 'Submit Assessment Request →');
+  // ── Estimator 结果自动发送到邮箱 ─────────────────────────────
+const EJS_TEMPLATE_ESTIMATOR = 'template_hg42rnm'; // 替换
+
+function estSendResultByEmail(report) {
+  // 整理推荐服务文字
+  const recsText = (report.recommendations || [])
+    .map(r => `• ${r.title}: ${r.description}`)
+    .join('\n');
+
+  // 整理案例数据
+  const cs = report.caseStudy || {};
+  const metricsText = (cs.metrics || [])
+    .map(m => `${m.label}: ${m.value}`)
+    .join(' | ');
+
+  const params = {
+    contact_name:   estState.name,
+    company_name:   estState.company,
+    contact_email:  estState.email,
+    location:       estCountryNames[estState.country] || estState.country,
+    facility_type:  estFacilityNames[estState.facility],
+    objectives:     estState.svcs.length
+                      ? estState.svcs.map(s => estSvcNames[s]).join(', ')
+                      : 'Not specified',
+    spend:          estSpendNames[estState.spend],
+    report_title:   report.title || '',
+    report_summary: report.summary || '',
+    recommendations: recsText || 'None',
+    constraints:    report.constraints || 'None',
+    case_title:     cs.title || 'N/A',
+    case_description: cs.description || '',
+    case_metrics:   metricsText || '',
+    cta_title:      report.ctaTitle || '',
+    submit_time:    new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }),
+  };
+
+  // 静默发送，不影响用户体验，失败只在 console 记录
+  emailjs.send(EJS_SERVICE, EJS_TEMPLATE_ESTIMATOR, params)
+    .then(() => console.log('Estimator result sent to email.'))
+    .catch(err => console.error('Estimator email failed:', err));
+}
 </script>
 </body>
 </html>
