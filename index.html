@@ -93,6 +93,12 @@
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
     </style>
+ <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  window.addEventListener('load', function() {
+    emailjs.init({ publicKey: 'jOH_KxTQLygga7lUl' });
+  });
+</script>
 </head>
 <body class="bg-white">
 
@@ -511,32 +517,30 @@
                 </div>
 
                 <div class="lg:w-2/3 w-full bg-white p-10 md:p-14 rounded-[48px] shadow-2xl shadow-gray-200">
-                    <form action="#" class="space-y-8">
+                    <form id="main-assessment-form" class="space-y-8">
     <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name <span class="text-[#FF8C32]">*</span></label>
-            <input type="text" required placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="text" name="from_name" required placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name <span class="text-[#FF8C32]">*</span></label>
-            <input type="text" required placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="text" name="company_name" required placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
     </div>
-
     <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Business Email <span class="text-[#FF8C32]">*</span></label>
-            <input type="email" required placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="email" name="from_email" required placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Phone Number <span class="text-gray-300 font-normal italic">(Optional)</span></label>
-            <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="tel" name="phone" placeholder="+1 (555) 000-0000" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
     </div>
-
     <div class="space-y-2">
         <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Facility Type <span class="text-[#FF8C32]">*</span></label>
-        <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+        <select name="facility_type" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
             <option value="" disabled selected>Select facility type...</option>
             <option>Data Center / 数据中心</option>
             <option>Industrial Plant / 工业厂房</option>
@@ -549,37 +553,35 @@
             <option>Other / 其他</option>
         </select>
     </div>
-
     <div class="space-y-4">
-        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes <span class="text-[#FF8C32]">*</span></label>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" name="outcomes" value="Power" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-            </label>
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" name="outcomes" value="Cooling" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-            </label>
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" name="outcomes" value="Thermal" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-            </label>
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" name="outcomes" value="Efficiency" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100 transition-opacity"></div>
-            </label>
-        </div>
+    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes <span class="text-[#FF8C32]">*</span></label>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Power" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Cooling" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Thermal" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Efficiency" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
     </div>
-
+</div>
     <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Scale <span class="text-[#FF8C32]">*</span></label>
-            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+            <select name="project_scale" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
                 <option value="" disabled selected>Select scale...</option>
                 <option>$250k - $1M</option>
                 <option>$1M - $5M</option>
@@ -588,7 +590,7 @@
         </div>
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Target Timeline <span class="text-[#FF8C32]">*</span></label>
-            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+            <select name="timeline" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
                 <option value="" disabled selected>Select timeline...</option>
                 <option>Within 3 Months</option>
                 <option>3-6 Months</option>
@@ -596,24 +598,19 @@
             </select>
         </div>
     </div>
-
     <div class="space-y-2">
         <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Main Energy Challenge <span class="text-gray-300 font-normal italic">(Optional)</span></label>
-        <textarea rows="4" placeholder="What is your biggest energy-related problem today?" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all resize-none"></textarea>
+        <textarea name="message" rows="4" placeholder="What is your biggest energy-related problem today?" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all resize-none"></textarea>
     </div>
-                      <div class="flex items-start gap-3 mt-4 mb-6 text-left">
-    <input type="checkbox" 
-           id="footer-sms-consent" 
-           name="sms_consent" 
-           required 
-           class="mt-1.5 w-4 h-4 rounded border-gray-300 text-[#FF8C32] focus:ring-[#FF8C32] cursor-pointer">
-    <label for="footer-sms-consent" class="text-xs text-gray-500 leading-relaxed cursor-pointer">
-        By submitting this form, you agree to receive SMS messages from YCE Energy related to your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. <span class="text-[#FF8C32]">*</span>
-    </label>
-</div>
-
+    <div class="flex items-start gap-3 mt-4 mb-6 text-left">
+        <input type="checkbox" id="main-sms-consent" required class="mt-1.5 w-4 h-4 rounded border-gray-300 text-[#FF8C32] focus:ring-[#FF8C32] cursor-pointer">
+        <label for="main-sms-consent" class="text-xs text-gray-500 leading-relaxed cursor-pointer">
+            By submitting this form, you agree to receive SMS messages from YCE Energy related to your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. <span class="text-[#FF8C32]">*</span>
+        </label>
+    </div>
+    <div id="main-form-msg" class="hidden text-sm font-medium px-6 py-4 rounded-2xl"></div>
     <button type="submit" class="w-full bg-[#FF8C32] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#1F2933] transition-all shadow-xl shadow-orange-200">
-        Submit Assessment Request → 
+        Submit Assessment Request →
     </button>
 </form>
                 </div>
@@ -2676,32 +2673,30 @@
             <p class="text-gray-500 mt-2">Provide your facility details below to build your roadmap within 24 hours.</p>
         </div>
 
-<form action="#" class="space-y-8">
+<form id="main-assessment-form" class="space-y-8">
     <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Full Name <span class="text-[#FF8C32]">*</span></label>
-            <input type="text" required placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="text" name="from_name" required placeholder="John Doe" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Company Name <span class="text-[#FF8C32]">*</span></label>
-            <input type="text" required placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="text" name="company_name" required placeholder="e.g. YCE Energy" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
     </div>
-
     <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Business Email <span class="text-[#FF8C32]">*</span></label>
-            <input type="email" required placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="email" name="from_email" required placeholder="name@company.com" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Phone Number <span class="text-gray-300 font-normal italic">(Optional)</span></label>
-            <input type="tel" placeholder="+1 (555) 000-0000" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
+            <input type="tel" name="phone" placeholder="+1 (555) 000-0000" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all">
         </div>
     </div>
-
     <div class="space-y-2">
         <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Facility Type <span class="text-[#FF8C32]">*</span></label>
-        <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+        <select name="facility_type" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
             <option value="" disabled selected>Select facility type...</option>
             <option>Data Center / 数据中心</option>
             <option>Industrial Plant / 工业厂房</option>
@@ -2714,37 +2709,35 @@
             <option>Other / 其他</option>
         </select>
     </div>
-
     <div class="space-y-4">
-        <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes <span class="text-[#FF8C32]">*</span></label>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" required class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-            </label>
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-            </label>
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-            </label>
-            <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
-                <input type="checkbox" class="absolute inset-0 opacity-0 cursor-pointer peer">
-                <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency</span>
-                <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
-            </label>
-        </div>
+    <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Desired Energy Outcomes <span class="text-[#FF8C32]">*</span></label>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Power" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Power</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Cooling" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Cooling</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Thermal" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Thermal</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
+        <label class="relative flex flex-col items-center justify-center p-4 rounded-2xl border-2 border-gray-50 cursor-pointer hover:border-[#FF8C32]/20 transition-all group">
+            <input type="checkbox" name="outcomes" value="Efficiency" class="absolute inset-0 opacity-0 cursor-pointer peer">
+            <span class="text-xs font-bold text-gray-400 peer-checked:text-[#FF8C32] transition-colors">Efficiency</span>
+            <div class="absolute bottom-2 w-1 h-1 rounded-full bg-[#FF8C32] opacity-0 peer-checked:opacity-100"></div>
+        </label>
     </div>
-
+</div>
     <div class="grid md:grid-cols-2 gap-8">
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Project Scale <span class="text-[#FF8C32]">*</span></label>
-            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+            <select name="project_scale" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
                 <option value="" disabled selected>Select scale...</option>
                 <option>$250k - $1M</option>
                 <option>$1M - $5M</option>
@@ -2753,7 +2746,7 @@
         </div>
         <div class="space-y-2">
             <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Target Timeline <span class="text-[#FF8C32]">*</span></label>
-            <select required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
+            <select name="timeline" required class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all text-gray-500 appearance-none">
                 <option value="" disabled selected>Select timeline...</option>
                 <option>Within 3 Months</option>
                 <option>3-6 Months</option>
@@ -2761,24 +2754,19 @@
             </select>
         </div>
     </div>
-
     <div class="space-y-2">
         <label class="text-[10px] font-black uppercase tracking-widest text-gray-400 ml-1">Main Energy Challenge <span class="text-gray-300 font-normal italic">(Optional)</span></label>
-        <textarea rows="4" placeholder="What is your biggest energy-related problem today?" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all resize-none"></textarea>
+        <textarea name="message" rows="4" placeholder="What is your biggest energy-related problem today?" class="w-full px-6 py-4 rounded-2xl bg-gray-50 border-2 border-transparent focus:border-[#FF8C32]/20 focus:bg-white outline-none transition-all resize-none"></textarea>
     </div>
-  <div class="flex items-start gap-3 mt-4 mb-6 text-left">
-    <input type="checkbox" 
-           id="footer-sms-consent" 
-           name="sms_consent" 
-           required 
-           class="mt-1.5 w-4 h-4 rounded border-gray-300 text-[#FF8C32] focus:ring-[#FF8C32] cursor-pointer">
-    <label for="footer-sms-consent" class="text-xs text-gray-500 leading-relaxed cursor-pointer">
-        By submitting this form, you agree to receive SMS messages from YCE Energy related to your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. <span class="text-[#FF8C32]">*</span>
-    </label>
-</div>
-
+    <div class="flex items-start gap-3 mt-4 mb-6 text-left">
+        <input type="checkbox" id="main-sms-consent" required class="mt-1.5 w-4 h-4 rounded border-gray-300 text-[#FF8C32] focus:ring-[#FF8C32] cursor-pointer">
+        <label for="main-sms-consent" class="text-xs text-gray-500 leading-relaxed cursor-pointer">
+            By submitting this form, you agree to receive SMS messages from YCE Energy related to your inquiry. Message frequency varies. Message and data rates may apply. Reply STOP to opt out, HELP for help. <span class="text-[#FF8C32]">*</span>
+        </label>
+    </div>
+    <div id="main-form-msg" class="hidden text-sm font-medium px-6 py-4 rounded-2xl"></div>
     <button type="submit" class="w-full bg-[#FF8C32] text-white py-6 rounded-2xl font-bold text-lg hover:bg-[#1F2933] transition-all shadow-xl shadow-orange-200">
-        Submit Assessment Request → 
+        Submit Assessment Request →
     </button>
 </form>
     </div>
@@ -3149,6 +3137,66 @@ function estRenderResults(r) {
 }
 
 // 确保 handleRouting 支持新页面 (无需修改，原逻辑通过 hash 自动匹配 ID)
+  // ── EmailJS 表单提交逻辑 ──────────────────────────────────────
+const EJS_SERVICE  = 'service_hvmvb7h';   // 替换
+const EJS_TEMPLATE = 'template_mwuc2am';  // 替换
+
+function getOutcomes(form) {
+  const checked = form.querySelectorAll('input[name="outcomes"]:checked');
+  return Array.from(checked).map(cb => cb.value).join(', ') || 'Not specified';
+}
+
+function handleFormSubmit(formId, btnText) {
+  const form = document.getElementById(formId);
+  if (!form) return;
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn = form.querySelector('button[type="submit"]');
+    const msgEl = form.querySelector('[id$="-form-msg"]');
+
+    // 收集 checkbox outcomes
+    const params = {
+      from_name:     form.querySelector('[name="from_name"]').value.trim(),
+      company_name:  form.querySelector('[name="company_name"]').value.trim(),
+      from_email:    form.querySelector('[name="from_email"]').value.trim(),
+      phone:         form.querySelector('[name="phone"]')?.value.trim() || 'Not provided',
+      facility_type: form.querySelector('[name="facility_type"]').value,
+      outcomes:      getOutcomes(form),
+      project_scale: form.querySelector('[name="project_scale"]').value,
+      timeline:      form.querySelector('[name="timeline"]').value,
+      message:       form.querySelector('[name="message"]')?.value.trim() || 'Not provided',
+      submit_time:   new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }),
+    };
+
+    // 按钮状态改为发送中
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    msgEl.className = 'text-sm font-medium px-6 py-4 rounded-2xl';
+
+    try {
+      await emailjs.send(EJS_SERVICE, EJS_TEMPLATE, params);
+
+      // 成功
+      msgEl.textContent = '✓ Request received. Our team will contact you within 24 hours.';
+      msgEl.classList.add('bg-green-50', 'text-green-700');
+      form.reset();
+      btn.textContent = 'Submitted ✓';
+
+    } catch (err) {
+      console.error('EmailJS error:', err);
+      msgEl.textContent = 'Something went wrong. Please email us directly at support@yce.energy';
+      msgEl.classList.add('bg-red-50', 'text-red-600');
+      btn.disabled = false;
+      btn.textContent = btnText;
+    }
+  });
+}
+
+// 初始化两个表单
+handleFormSubmit('main-assessment-form', 'Submit Assessment Request →');
+handleFormSubmit('modal-assessment-form', 'Submit Assessment Request →');
 </script>
 </body>
 </html>
